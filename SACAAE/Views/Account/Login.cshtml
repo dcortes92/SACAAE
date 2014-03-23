@@ -1,0 +1,28 @@
+﻿@model SACAAE.Models.LoginModel
+
+@{
+    ViewBag.Title = "Iniciar Sesión";
+}
+
+<div class="page-header">
+    <h1>Sistema de Asignaci&oacute;n de Carga Acad&eacute;mica</h1>
+    <div class="col-lg-4">
+        <h2 class="form-signin-heading">Iniciar Sesi&oacute;n</h2>
+        <section id="loginForm">
+            @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)               
+
+                
+                @Html.TextBoxFor(m => m.NombreUsuario, new { @class = "form-control", @placeholder = "Nombre de Usuario", @required = "true" })
+                @Html.ValidationMessageFor(m => m.NombreUsuario)
+                <br />
+                @Html.TextBoxFor(m => m.Contrasenia, new { @class = "form-control", @placeholder = "Contraseña", @type = "password", @required = "true" })
+                @Html.ValidationMessageFor(m => m.Contrasenia)
+                <hr />
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar Sesi&oacute;n</button>
+            }
+        </section>
+    </div>
+</div>

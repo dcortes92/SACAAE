@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f0e6c3ca2f7d4f429c71af5305839fd5" Name="Diagrama1">
+        <EntityTypeShape EntityType="SACAAEModel.Comisione" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SACAAEModel.ComisionesXProfesor" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SACAAEModel.Curso" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SACAAEModel.CursosXGrupo" Width="1.5" PointX="8.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SACAAEModel.Grupo" Width="1.5" PointX="6" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SACAAEModel.Modalidade" Width="1.5" PointX="1.5" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SACAAEModel.Periodo" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SACAAEModel.PlanesDeEstudio" Width="1.5" PointX="1.5" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="SACAAEModel.PlanesDeEstudioXSede" Width="1.5" PointX="3.75" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="SACAAEModel.Profesore" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SACAAEModel.ProfesoresXCurso" Width="1.5" PointX="10.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SACAAEModel.Proyecto" Width="1.5" PointX="0.75" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SACAAEModel.ProyectosXProfesor" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SACAAEModel.Sede" Width="1.5" PointX="1.5" PointY="20.75" IsExpanded="true" />
+        <AssociationConnector Association="SACAAEModel.FK_ComisionesXProfesor_Comision_Comisiones_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="SACAAEModel.FK_ComisionesXProfesor_Periodo_Periodos_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="SACAAEModel.FK_ComisionesXProfesor_Profesor_Profesores_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="SACAAEModel.FK_CursosXGrupo_Curso_Cursos_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="SACAAEModel.FK_CursosXGrupo_Grupo_Grupo_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="SACAAEModel.FK_ProfesoresXCurso_Curso_CursosXGrupo_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="SACAAEModel.FK_Grupo_Periodo_Periodos_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="SACAAEModel.FK_Grupo_PlanDeEstudio_PlanesDeEstudioXSede_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="SACAAEModel.FK_PlanesDeEstudio_Modalidad_Modalidades_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="SACAAEModel.FK_ProyectosXProfesor_Periodo_Periodos_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="SACAAEModel.FK_PlanesDeEstudioXSede_PlanDeEstudio_PlanesDeEstudio_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="SACAAEModel.FK_PlanesDeEstudioXSede_Sede_Sedes_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="SACAAEModel.FK_ProfesoresXCurso_Profesor_Profesores_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="SACAAEModel.FK_ProyectosXProfesor_Profesor_Profesores_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="SACAAEModel.FK_ProyectosXProfesor_Proyecto_Proyectos_ID" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SACAAEModel.Usuario" Width="1.5" PointX="7.3166771695561135" PointY="22.529464761973109" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

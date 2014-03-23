@@ -1,0 +1,1001 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SACAAEModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="SACAAEModelStoreContainer">
+          <EntitySet Name="Comisiones" EntityType="SACAAEModel.Store.Comisiones" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ComisionesXProfesor" EntityType="SACAAEModel.Store.ComisionesXProfesor" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Cursos" EntityType="SACAAEModel.Store.Cursos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CursosXGrupo" EntityType="SACAAEModel.Store.CursosXGrupo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Grupo" EntityType="SACAAEModel.Store.Grupo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Modalidades" EntityType="SACAAEModel.Store.Modalidades" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Periodos" EntityType="SACAAEModel.Store.Periodos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PlanesDeEstudio" EntityType="SACAAEModel.Store.PlanesDeEstudio" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PlanesDeEstudioXSede" EntityType="SACAAEModel.Store.PlanesDeEstudioXSede" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Profesores" EntityType="SACAAEModel.Store.Profesores" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ProfesoresXCurso" EntityType="SACAAEModel.Store.ProfesoresXCurso" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Proyectos" EntityType="SACAAEModel.Store.Proyectos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ProyectosXProfesor" EntityType="SACAAEModel.Store.ProyectosXProfesor" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Sedes" EntityType="SACAAEModel.Store.Sedes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Usuario" EntityType="SACAAEModel.Store.Usuario" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_ComisionesXProfesor_Comision_Comisiones_ID" Association="SACAAEModel.Store.FK_ComisionesXProfesor_Comision_Comisiones_ID">
+            <End Role="Comisiones" EntitySet="Comisiones" />
+            <End Role="ComisionesXProfesor" EntitySet="ComisionesXProfesor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ComisionesXProfesor_Periodo_Periodos_ID" Association="SACAAEModel.Store.FK_ComisionesXProfesor_Periodo_Periodos_ID">
+            <End Role="Periodos" EntitySet="Periodos" />
+            <End Role="ComisionesXProfesor" EntitySet="ComisionesXProfesor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ComisionesXProfesor_Profesor_Profesores_ID" Association="SACAAEModel.Store.FK_ComisionesXProfesor_Profesor_Profesores_ID">
+            <End Role="Profesores" EntitySet="Profesores" />
+            <End Role="ComisionesXProfesor" EntitySet="ComisionesXProfesor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CursosXGrupo_Curso_Cursos_ID" Association="SACAAEModel.Store.FK_CursosXGrupo_Curso_Cursos_ID">
+            <End Role="Cursos" EntitySet="Cursos" />
+            <End Role="CursosXGrupo" EntitySet="CursosXGrupo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CursosXGrupo_Grupo_Grupo_ID" Association="SACAAEModel.Store.FK_CursosXGrupo_Grupo_Grupo_ID">
+            <End Role="Grupo" EntitySet="Grupo" />
+            <End Role="CursosXGrupo" EntitySet="CursosXGrupo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Grupo_Periodo_Periodos_ID" Association="SACAAEModel.Store.FK_Grupo_Periodo_Periodos_ID">
+            <End Role="Periodos" EntitySet="Periodos" />
+            <End Role="Grupo" EntitySet="Grupo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Grupo_PlanDeEstudio_PlanesDeEstudioXSede_ID" Association="SACAAEModel.Store.FK_Grupo_PlanDeEstudio_PlanesDeEstudioXSede_ID">
+            <End Role="PlanesDeEstudioXSede" EntitySet="PlanesDeEstudioXSede" />
+            <End Role="Grupo" EntitySet="Grupo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlanesDeEstudio_Modalidad_Modalidades_ID" Association="SACAAEModel.Store.FK_PlanesDeEstudio_Modalidad_Modalidades_ID">
+            <End Role="Modalidades" EntitySet="Modalidades" />
+            <End Role="PlanesDeEstudio" EntitySet="PlanesDeEstudio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlanesDeEstudioXSede_PlanDeEstudio_PlanesDeEstudio_ID" Association="SACAAEModel.Store.FK_PlanesDeEstudioXSede_PlanDeEstudio_PlanesDeEstudio_ID">
+            <End Role="PlanesDeEstudio" EntitySet="PlanesDeEstudio" />
+            <End Role="PlanesDeEstudioXSede" EntitySet="PlanesDeEstudioXSede" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlanesDeEstudioXSede_Sede_Sedes_ID" Association="SACAAEModel.Store.FK_PlanesDeEstudioXSede_Sede_Sedes_ID">
+            <End Role="Sedes" EntitySet="Sedes" />
+            <End Role="PlanesDeEstudioXSede" EntitySet="PlanesDeEstudioXSede" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProfesoresXCurso_Curso_CursosXGrupo_ID" Association="SACAAEModel.Store.FK_ProfesoresXCurso_Curso_CursosXGrupo_ID">
+            <End Role="CursosXGrupo" EntitySet="CursosXGrupo" />
+            <End Role="ProfesoresXCurso" EntitySet="ProfesoresXCurso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProfesoresXCurso_Profesor_Profesores_ID" Association="SACAAEModel.Store.FK_ProfesoresXCurso_Profesor_Profesores_ID">
+            <End Role="Profesores" EntitySet="Profesores" />
+            <End Role="ProfesoresXCurso" EntitySet="ProfesoresXCurso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProyectosXProfesor_Periodo_Periodos_ID" Association="SACAAEModel.Store.FK_ProyectosXProfesor_Periodo_Periodos_ID">
+            <End Role="Periodos" EntitySet="Periodos" />
+            <End Role="ProyectosXProfesor" EntitySet="ProyectosXProfesor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProyectosXProfesor_Profesor_Profesores_ID" Association="SACAAEModel.Store.FK_ProyectosXProfesor_Profesor_Profesores_ID">
+            <End Role="Profesores" EntitySet="Profesores" />
+            <End Role="ProyectosXProfesor" EntitySet="ProyectosXProfesor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProyectosXProfesor_Proyecto_Proyectos_ID" Association="SACAAEModel.Store.FK_ProyectosXProfesor_Proyecto_Proyectos_ID">
+            <End Role="Proyectos" EntitySet="Proyectos" />
+            <End Role="ProyectosXProfesor" EntitySet="ProyectosXProfesor" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Comisiones">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="Inicio" Type="datetime" Nullable="false" />
+          <Property Name="Fin" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ComisionesXProfesor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Comision" Type="int" Nullable="false" />
+          <Property Name="Profesor" Type="int" Nullable="false" />
+          <Property Name="Periodo" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cursos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="Codigo" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="HorasTeoricas" Type="int" Nullable="false" />
+          <Property Name="Bloque" Type="int" Nullable="false" />
+          <Property Name="Externo" Type="bit" Nullable="false" />
+          <Property Name="PlanDeEstudio" Type="int" Nullable="false" />
+          <Property Name="HorasPracticas" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="CursosXGrupo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Curso" Type="int" Nullable="false" />
+          <Property Name="Grupo" Type="int" Nullable="false" />
+          <Property Name="Profesor" Type="int" Nullable="false" />
+          <Property Name="Cupo" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Grupo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="varchar" MaxLength="250" />
+          <Property Name="PlanDeEstudio" Type="int" Nullable="false" />
+          <Property Name="Periodo" Type="int" Nullable="false" />
+          <Property Name="Bloque" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Modalidades">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Periodos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="PlanesDeEstudio">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="Modalidad" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PlanesDeEstudioXSede">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Sede" Type="int" Nullable="false" />
+          <Property Name="PlanDeEstudio" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Profesores">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="Plaza" Type="varchar" MaxLength="250" />
+          <Property Name="HorasEnPropiedad" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProfesoresXCurso">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Curso" Type="int" Nullable="false" />
+          <Property Name="Profesor" Type="int" Nullable="false" />
+          <Property Name="Horas" Type="int" />
+        </EntityType>
+        <EntityType Name="Proyectos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="Inicio" Type="datetime" />
+          <Property Name="Fin" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ProyectosXProfesor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Proyecto" Type="int" Nullable="false" />
+          <Property Name="Profesor" Type="int" Nullable="false" />
+          <Property Name="Periodo" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sedes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="ID_Usuario" />
+          </Key>
+          <Property Name="ID_Usuario" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="NombreUsuario" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Contrasenia" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="Correo" Type="nvarchar" Nullable="false" MaxLength="60" />
+        </EntityType>
+        <Association Name="FK_ComisionesXProfesor_Comision_Comisiones_ID">
+          <End Role="Comisiones" Type="SACAAEModel.Store.Comisiones" Multiplicity="1" />
+          <End Role="ComisionesXProfesor" Type="SACAAEModel.Store.ComisionesXProfesor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Comisiones">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ComisionesXProfesor">
+              <PropertyRef Name="Comision" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ComisionesXProfesor_Periodo_Periodos_ID">
+          <End Role="Periodos" Type="SACAAEModel.Store.Periodos" Multiplicity="1" />
+          <End Role="ComisionesXProfesor" Type="SACAAEModel.Store.ComisionesXProfesor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Periodos">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ComisionesXProfesor">
+              <PropertyRef Name="Periodo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ComisionesXProfesor_Profesor_Profesores_ID">
+          <End Role="Profesores" Type="SACAAEModel.Store.Profesores" Multiplicity="1" />
+          <End Role="ComisionesXProfesor" Type="SACAAEModel.Store.ComisionesXProfesor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profesores">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ComisionesXProfesor">
+              <PropertyRef Name="Profesor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CursosXGrupo_Curso_Cursos_ID">
+          <End Role="Cursos" Type="SACAAEModel.Store.Cursos" Multiplicity="1" />
+          <End Role="CursosXGrupo" Type="SACAAEModel.Store.CursosXGrupo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cursos">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CursosXGrupo">
+              <PropertyRef Name="Curso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CursosXGrupo_Grupo_Grupo_ID">
+          <End Role="Grupo" Type="SACAAEModel.Store.Grupo" Multiplicity="1" />
+          <End Role="CursosXGrupo" Type="SACAAEModel.Store.CursosXGrupo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grupo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CursosXGrupo">
+              <PropertyRef Name="Grupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Grupo_Periodo_Periodos_ID">
+          <End Role="Periodos" Type="SACAAEModel.Store.Periodos" Multiplicity="1" />
+          <End Role="Grupo" Type="SACAAEModel.Store.Grupo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Periodos">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Grupo">
+              <PropertyRef Name="Periodo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Grupo_PlanDeEstudio_PlanesDeEstudioXSede_ID">
+          <End Role="PlanesDeEstudioXSede" Type="SACAAEModel.Store.PlanesDeEstudioXSede" Multiplicity="1" />
+          <End Role="Grupo" Type="SACAAEModel.Store.Grupo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PlanesDeEstudioXSede">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Grupo">
+              <PropertyRef Name="PlanDeEstudio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlanesDeEstudio_Modalidad_Modalidades_ID">
+          <End Role="Modalidades" Type="SACAAEModel.Store.Modalidades" Multiplicity="1" />
+          <End Role="PlanesDeEstudio" Type="SACAAEModel.Store.PlanesDeEstudio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modalidades">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PlanesDeEstudio">
+              <PropertyRef Name="Modalidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlanesDeEstudioXSede_PlanDeEstudio_PlanesDeEstudio_ID">
+          <End Role="PlanesDeEstudio" Type="SACAAEModel.Store.PlanesDeEstudio" Multiplicity="1" />
+          <End Role="PlanesDeEstudioXSede" Type="SACAAEModel.Store.PlanesDeEstudioXSede" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PlanesDeEstudio">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PlanesDeEstudioXSede">
+              <PropertyRef Name="PlanDeEstudio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlanesDeEstudioXSede_Sede_Sedes_ID">
+          <End Role="Sedes" Type="SACAAEModel.Store.Sedes" Multiplicity="1" />
+          <End Role="PlanesDeEstudioXSede" Type="SACAAEModel.Store.PlanesDeEstudioXSede" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sedes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PlanesDeEstudioXSede">
+              <PropertyRef Name="Sede" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProfesoresXCurso_Curso_CursosXGrupo_ID">
+          <End Role="CursosXGrupo" Type="SACAAEModel.Store.CursosXGrupo" Multiplicity="1" />
+          <End Role="ProfesoresXCurso" Type="SACAAEModel.Store.ProfesoresXCurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CursosXGrupo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProfesoresXCurso">
+              <PropertyRef Name="Curso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProfesoresXCurso_Profesor_Profesores_ID">
+          <End Role="Profesores" Type="SACAAEModel.Store.Profesores" Multiplicity="1" />
+          <End Role="ProfesoresXCurso" Type="SACAAEModel.Store.ProfesoresXCurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profesores">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProfesoresXCurso">
+              <PropertyRef Name="Profesor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProyectosXProfesor_Periodo_Periodos_ID">
+          <End Role="Periodos" Type="SACAAEModel.Store.Periodos" Multiplicity="1" />
+          <End Role="ProyectosXProfesor" Type="SACAAEModel.Store.ProyectosXProfesor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Periodos">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProyectosXProfesor">
+              <PropertyRef Name="Periodo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProyectosXProfesor_Profesor_Profesores_ID">
+          <End Role="Profesores" Type="SACAAEModel.Store.Profesores" Multiplicity="1" />
+          <End Role="ProyectosXProfesor" Type="SACAAEModel.Store.ProyectosXProfesor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profesores">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProyectosXProfesor">
+              <PropertyRef Name="Profesor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProyectosXProfesor_Proyecto_Proyectos_ID">
+          <End Role="Proyectos" Type="SACAAEModel.Store.Proyectos" Multiplicity="1" />
+          <End Role="ProyectosXProfesor" Type="SACAAEModel.Store.ProyectosXProfesor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyectos">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProyectosXProfesor">
+              <PropertyRef Name="Proyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SACAAEModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SACAAEEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Comisiones" EntityType="SACAAEModel.Comisione" />
+          <EntitySet Name="ComisionesXProfesors" EntityType="SACAAEModel.ComisionesXProfesor" />
+          <EntitySet Name="Cursos" EntityType="SACAAEModel.Curso" />
+          <EntitySet Name="CursosXGrupoes" EntityType="SACAAEModel.CursosXGrupo" />
+          <EntitySet Name="Grupoes" EntityType="SACAAEModel.Grupo" />
+          <EntitySet Name="Modalidades" EntityType="SACAAEModel.Modalidade" />
+          <EntitySet Name="Periodos" EntityType="SACAAEModel.Periodo" />
+          <EntitySet Name="PlanesDeEstudios" EntityType="SACAAEModel.PlanesDeEstudio" />
+          <EntitySet Name="PlanesDeEstudioXSedes" EntityType="SACAAEModel.PlanesDeEstudioXSede" />
+          <EntitySet Name="Profesores" EntityType="SACAAEModel.Profesore" />
+          <EntitySet Name="ProfesoresXCursoes" EntityType="SACAAEModel.ProfesoresXCurso" />
+          <EntitySet Name="Proyectos" EntityType="SACAAEModel.Proyecto" />
+          <EntitySet Name="ProyectosXProfesors" EntityType="SACAAEModel.ProyectosXProfesor" />
+          <EntitySet Name="Sedes" EntityType="SACAAEModel.Sede" />
+          <AssociationSet Name="FK_ComisionesXProfesor_Comision_Comisiones_ID" Association="SACAAEModel.FK_ComisionesXProfesor_Comision_Comisiones_ID">
+            <End Role="Comisiones" EntitySet="Comisiones" />
+            <End Role="ComisionesXProfesor" EntitySet="ComisionesXProfesors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ComisionesXProfesor_Periodo_Periodos_ID" Association="SACAAEModel.FK_ComisionesXProfesor_Periodo_Periodos_ID">
+            <End Role="Periodos" EntitySet="Periodos" />
+            <End Role="ComisionesXProfesor" EntitySet="ComisionesXProfesors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ComisionesXProfesor_Profesor_Profesores_ID" Association="SACAAEModel.FK_ComisionesXProfesor_Profesor_Profesores_ID">
+            <End Role="Profesores" EntitySet="Profesores" />
+            <End Role="ComisionesXProfesor" EntitySet="ComisionesXProfesors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CursosXGrupo_Curso_Cursos_ID" Association="SACAAEModel.FK_CursosXGrupo_Curso_Cursos_ID">
+            <End Role="Cursos" EntitySet="Cursos" />
+            <End Role="CursosXGrupo" EntitySet="CursosXGrupoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CursosXGrupo_Grupo_Grupo_ID" Association="SACAAEModel.FK_CursosXGrupo_Grupo_Grupo_ID">
+            <End Role="Grupo" EntitySet="Grupoes" />
+            <End Role="CursosXGrupo" EntitySet="CursosXGrupoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProfesoresXCurso_Curso_CursosXGrupo_ID" Association="SACAAEModel.FK_ProfesoresXCurso_Curso_CursosXGrupo_ID">
+            <End Role="CursosXGrupo" EntitySet="CursosXGrupoes" />
+            <End Role="ProfesoresXCurso" EntitySet="ProfesoresXCursoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Grupo_Periodo_Periodos_ID" Association="SACAAEModel.FK_Grupo_Periodo_Periodos_ID">
+            <End Role="Periodos" EntitySet="Periodos" />
+            <End Role="Grupo" EntitySet="Grupoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Grupo_PlanDeEstudio_PlanesDeEstudioXSede_ID" Association="SACAAEModel.FK_Grupo_PlanDeEstudio_PlanesDeEstudioXSede_ID">
+            <End Role="PlanesDeEstudioXSede" EntitySet="PlanesDeEstudioXSedes" />
+            <End Role="Grupo" EntitySet="Grupoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlanesDeEstudio_Modalidad_Modalidades_ID" Association="SACAAEModel.FK_PlanesDeEstudio_Modalidad_Modalidades_ID">
+            <End Role="Modalidades" EntitySet="Modalidades" />
+            <End Role="PlanesDeEstudio" EntitySet="PlanesDeEstudios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProyectosXProfesor_Periodo_Periodos_ID" Association="SACAAEModel.FK_ProyectosXProfesor_Periodo_Periodos_ID">
+            <End Role="Periodos" EntitySet="Periodos" />
+            <End Role="ProyectosXProfesor" EntitySet="ProyectosXProfesors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlanesDeEstudioXSede_PlanDeEstudio_PlanesDeEstudio_ID" Association="SACAAEModel.FK_PlanesDeEstudioXSede_PlanDeEstudio_PlanesDeEstudio_ID">
+            <End Role="PlanesDeEstudio" EntitySet="PlanesDeEstudios" />
+            <End Role="PlanesDeEstudioXSede" EntitySet="PlanesDeEstudioXSedes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlanesDeEstudioXSede_Sede_Sedes_ID" Association="SACAAEModel.FK_PlanesDeEstudioXSede_Sede_Sedes_ID">
+            <End Role="Sedes" EntitySet="Sedes" />
+            <End Role="PlanesDeEstudioXSede" EntitySet="PlanesDeEstudioXSedes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProfesoresXCurso_Profesor_Profesores_ID" Association="SACAAEModel.FK_ProfesoresXCurso_Profesor_Profesores_ID">
+            <End Role="Profesores" EntitySet="Profesores" />
+            <End Role="ProfesoresXCurso" EntitySet="ProfesoresXCursoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProyectosXProfesor_Profesor_Profesores_ID" Association="SACAAEModel.FK_ProyectosXProfesor_Profesor_Profesores_ID">
+            <End Role="Profesores" EntitySet="Profesores" />
+            <End Role="ProyectosXProfesor" EntitySet="ProyectosXProfesors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProyectosXProfesor_Proyecto_Proyectos_ID" Association="SACAAEModel.FK_ProyectosXProfesor_Proyecto_Proyectos_ID">
+            <End Role="Proyectos" EntitySet="Proyectos" />
+            <End Role="ProyectosXProfesor" EntitySet="ProyectosXProfesors" />
+          </AssociationSet>
+          <EntitySet Name="Usuarios" EntityType="SACAAEModel.Usuario" />
+        </EntityContainer>
+        <EntityType Name="Comisione">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="Inicio" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Fin" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ComisionesXProfesors" Relationship="SACAAEModel.FK_ComisionesXProfesor_Comision_Comisiones_ID" FromRole="Comisiones" ToRole="ComisionesXProfesor" />
+        </EntityType>
+        <EntityType Name="ComisionesXProfesor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Comision" Type="Int32" Nullable="false" />
+          <Property Name="Profesor" Type="Int32" Nullable="false" />
+          <Property Name="Periodo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Comisione" Relationship="SACAAEModel.FK_ComisionesXProfesor_Comision_Comisiones_ID" FromRole="ComisionesXProfesor" ToRole="Comisiones" />
+          <NavigationProperty Name="Periodo1" Relationship="SACAAEModel.FK_ComisionesXProfesor_Periodo_Periodos_ID" FromRole="ComisionesXProfesor" ToRole="Periodos" />
+          <NavigationProperty Name="Profesore" Relationship="SACAAEModel.FK_ComisionesXProfesor_Profesor_Profesores_ID" FromRole="ComisionesXProfesor" ToRole="Profesores" />
+        </EntityType>
+        <EntityType Name="Curso">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="Codigo" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="HorasTeoricas" Type="Int32" Nullable="false" />
+          <Property Name="Bloque" Type="Int32" Nullable="false" />
+          <Property Name="Externo" Type="Boolean" Nullable="false" />
+          <Property Name="PlanDeEstudio" Type="Int32" Nullable="false" />
+          <Property Name="HorasPracticas" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="CursosXGrupoes" Relationship="SACAAEModel.FK_CursosXGrupo_Curso_Cursos_ID" FromRole="Cursos" ToRole="CursosXGrupo" />
+        </EntityType>
+        <EntityType Name="CursosXGrupo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Curso" Type="Int32" Nullable="false" />
+          <Property Name="Grupo" Type="Int32" Nullable="false" />
+          <Property Name="Profesor" Type="Int32" Nullable="false" />
+          <Property Name="Cupo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Curso1" Relationship="SACAAEModel.FK_CursosXGrupo_Curso_Cursos_ID" FromRole="CursosXGrupo" ToRole="Cursos" />
+          <NavigationProperty Name="Grupo1" Relationship="SACAAEModel.FK_CursosXGrupo_Grupo_Grupo_ID" FromRole="CursosXGrupo" ToRole="Grupo" />
+          <NavigationProperty Name="ProfesoresXCursoes" Relationship="SACAAEModel.FK_ProfesoresXCurso_Curso_CursosXGrupo_ID" FromRole="CursosXGrupo" ToRole="ProfesoresXCurso" />
+        </EntityType>
+        <EntityType Name="Grupo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="PlanDeEstudio" Type="Int32" Nullable="false" />
+          <Property Name="Periodo" Type="Int32" Nullable="false" />
+          <Property Name="Bloque" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CursosXGrupoes" Relationship="SACAAEModel.FK_CursosXGrupo_Grupo_Grupo_ID" FromRole="Grupo" ToRole="CursosXGrupo" />
+          <NavigationProperty Name="Periodo1" Relationship="SACAAEModel.FK_Grupo_Periodo_Periodos_ID" FromRole="Grupo" ToRole="Periodos" />
+          <NavigationProperty Name="PlanesDeEstudioXSede" Relationship="SACAAEModel.FK_Grupo_PlanDeEstudio_PlanesDeEstudioXSede_ID" FromRole="Grupo" ToRole="PlanesDeEstudioXSede" />
+        </EntityType>
+        <EntityType Name="Modalidade">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="PlanesDeEstudios" Relationship="SACAAEModel.FK_PlanesDeEstudio_Modalidad_Modalidades_ID" FromRole="Modalidades" ToRole="PlanesDeEstudio" />
+        </EntityType>
+        <EntityType Name="Periodo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="ComisionesXProfesors" Relationship="SACAAEModel.FK_ComisionesXProfesor_Periodo_Periodos_ID" FromRole="Periodos" ToRole="ComisionesXProfesor" />
+          <NavigationProperty Name="Grupoes" Relationship="SACAAEModel.FK_Grupo_Periodo_Periodos_ID" FromRole="Periodos" ToRole="Grupo" />
+          <NavigationProperty Name="ProyectosXProfesors" Relationship="SACAAEModel.FK_ProyectosXProfesor_Periodo_Periodos_ID" FromRole="Periodos" ToRole="ProyectosXProfesor" />
+        </EntityType>
+        <EntityType Name="PlanesDeEstudio">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="Modalidad" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Modalidade" Relationship="SACAAEModel.FK_PlanesDeEstudio_Modalidad_Modalidades_ID" FromRole="PlanesDeEstudio" ToRole="Modalidades" />
+          <NavigationProperty Name="PlanesDeEstudioXSedes" Relationship="SACAAEModel.FK_PlanesDeEstudioXSede_PlanDeEstudio_PlanesDeEstudio_ID" FromRole="PlanesDeEstudio" ToRole="PlanesDeEstudioXSede" />
+        </EntityType>
+        <EntityType Name="PlanesDeEstudioXSede">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Sede" Type="Int32" Nullable="false" />
+          <Property Name="PlanDeEstudio" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Grupoes" Relationship="SACAAEModel.FK_Grupo_PlanDeEstudio_PlanesDeEstudioXSede_ID" FromRole="PlanesDeEstudioXSede" ToRole="Grupo" />
+          <NavigationProperty Name="PlanesDeEstudio" Relationship="SACAAEModel.FK_PlanesDeEstudioXSede_PlanDeEstudio_PlanesDeEstudio_ID" FromRole="PlanesDeEstudioXSede" ToRole="PlanesDeEstudio" />
+          <NavigationProperty Name="Sede1" Relationship="SACAAEModel.FK_PlanesDeEstudioXSede_Sede_Sedes_ID" FromRole="PlanesDeEstudioXSede" ToRole="Sedes" />
+        </EntityType>
+        <EntityType Name="Profesore">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="Plaza" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="HorasEnPropiedad" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ComisionesXProfesors" Relationship="SACAAEModel.FK_ComisionesXProfesor_Profesor_Profesores_ID" FromRole="Profesores" ToRole="ComisionesXProfesor" />
+          <NavigationProperty Name="ProfesoresXCursoes" Relationship="SACAAEModel.FK_ProfesoresXCurso_Profesor_Profesores_ID" FromRole="Profesores" ToRole="ProfesoresXCurso" />
+          <NavigationProperty Name="ProyectosXProfesors" Relationship="SACAAEModel.FK_ProyectosXProfesor_Profesor_Profesores_ID" FromRole="Profesores" ToRole="ProyectosXProfesor" />
+        </EntityType>
+        <EntityType Name="ProfesoresXCurso">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Curso" Type="Int32" Nullable="false" />
+          <Property Name="Profesor" Type="Int32" Nullable="false" />
+          <Property Name="Horas" Type="Int32" />
+          <NavigationProperty Name="CursosXGrupo" Relationship="SACAAEModel.FK_ProfesoresXCurso_Curso_CursosXGrupo_ID" FromRole="ProfesoresXCurso" ToRole="CursosXGrupo" />
+          <NavigationProperty Name="Profesore" Relationship="SACAAEModel.FK_ProfesoresXCurso_Profesor_Profesores_ID" FromRole="ProfesoresXCurso" ToRole="Profesores" />
+        </EntityType>
+        <EntityType Name="Proyecto">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="Inicio" Type="DateTime" Precision="3" />
+          <Property Name="Fin" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ProyectosXProfesors" Relationship="SACAAEModel.FK_ProyectosXProfesor_Proyecto_Proyectos_ID" FromRole="Proyectos" ToRole="ProyectosXProfesor" />
+        </EntityType>
+        <EntityType Name="ProyectosXProfesor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Proyecto" Type="Int32" Nullable="false" />
+          <Property Name="Profesor" Type="Int32" Nullable="false" />
+          <Property Name="Periodo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Periodo1" Relationship="SACAAEModel.FK_ProyectosXProfesor_Periodo_Periodos_ID" FromRole="ProyectosXProfesor" ToRole="Periodos" />
+          <NavigationProperty Name="Profesore" Relationship="SACAAEModel.FK_ProyectosXProfesor_Profesor_Profesores_ID" FromRole="ProyectosXProfesor" ToRole="Profesores" />
+          <NavigationProperty Name="Proyecto1" Relationship="SACAAEModel.FK_ProyectosXProfesor_Proyecto_Proyectos_ID" FromRole="ProyectosXProfesor" ToRole="Proyectos" />
+        </EntityType>
+        <EntityType Name="Sede">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="PlanesDeEstudioXSedes" Relationship="SACAAEModel.FK_PlanesDeEstudioXSede_Sede_Sedes_ID" FromRole="Sedes" ToRole="PlanesDeEstudioXSede" />
+        </EntityType>
+        <Association Name="FK_ComisionesXProfesor_Comision_Comisiones_ID">
+          <End Role="Comisiones" Type="SACAAEModel.Comisione" Multiplicity="1" />
+          <End Role="ComisionesXProfesor" Type="SACAAEModel.ComisionesXProfesor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Comisiones">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ComisionesXProfesor">
+              <PropertyRef Name="Comision" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ComisionesXProfesor_Periodo_Periodos_ID">
+          <End Role="Periodos" Type="SACAAEModel.Periodo" Multiplicity="1" />
+          <End Role="ComisionesXProfesor" Type="SACAAEModel.ComisionesXProfesor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Periodos">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ComisionesXProfesor">
+              <PropertyRef Name="Periodo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ComisionesXProfesor_Profesor_Profesores_ID">
+          <End Role="Profesores" Type="SACAAEModel.Profesore" Multiplicity="1" />
+          <End Role="ComisionesXProfesor" Type="SACAAEModel.ComisionesXProfesor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profesores">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ComisionesXProfesor">
+              <PropertyRef Name="Profesor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CursosXGrupo_Curso_Cursos_ID">
+          <End Role="Cursos" Type="SACAAEModel.Curso" Multiplicity="1" />
+          <End Role="CursosXGrupo" Type="SACAAEModel.CursosXGrupo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cursos">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CursosXGrupo">
+              <PropertyRef Name="Curso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CursosXGrupo_Grupo_Grupo_ID">
+          <End Role="Grupo" Type="SACAAEModel.Grupo" Multiplicity="1" />
+          <End Role="CursosXGrupo" Type="SACAAEModel.CursosXGrupo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grupo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CursosXGrupo">
+              <PropertyRef Name="Grupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProfesoresXCurso_Curso_CursosXGrupo_ID">
+          <End Role="CursosXGrupo" Type="SACAAEModel.CursosXGrupo" Multiplicity="1" />
+          <End Role="ProfesoresXCurso" Type="SACAAEModel.ProfesoresXCurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CursosXGrupo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProfesoresXCurso">
+              <PropertyRef Name="Curso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Grupo_Periodo_Periodos_ID">
+          <End Role="Periodos" Type="SACAAEModel.Periodo" Multiplicity="1" />
+          <End Role="Grupo" Type="SACAAEModel.Grupo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Periodos">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Grupo">
+              <PropertyRef Name="Periodo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Grupo_PlanDeEstudio_PlanesDeEstudioXSede_ID">
+          <End Role="PlanesDeEstudioXSede" Type="SACAAEModel.PlanesDeEstudioXSede" Multiplicity="1" />
+          <End Role="Grupo" Type="SACAAEModel.Grupo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PlanesDeEstudioXSede">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Grupo">
+              <PropertyRef Name="PlanDeEstudio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlanesDeEstudio_Modalidad_Modalidades_ID">
+          <End Role="Modalidades" Type="SACAAEModel.Modalidade" Multiplicity="1" />
+          <End Role="PlanesDeEstudio" Type="SACAAEModel.PlanesDeEstudio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modalidades">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PlanesDeEstudio">
+              <PropertyRef Name="Modalidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProyectosXProfesor_Periodo_Periodos_ID">
+          <End Role="Periodos" Type="SACAAEModel.Periodo" Multiplicity="1" />
+          <End Role="ProyectosXProfesor" Type="SACAAEModel.ProyectosXProfesor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Periodos">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProyectosXProfesor">
+              <PropertyRef Name="Periodo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlanesDeEstudioXSede_PlanDeEstudio_PlanesDeEstudio_ID">
+          <End Role="PlanesDeEstudio" Type="SACAAEModel.PlanesDeEstudio" Multiplicity="1" />
+          <End Role="PlanesDeEstudioXSede" Type="SACAAEModel.PlanesDeEstudioXSede" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PlanesDeEstudio">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PlanesDeEstudioXSede">
+              <PropertyRef Name="PlanDeEstudio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlanesDeEstudioXSede_Sede_Sedes_ID">
+          <End Role="Sedes" Type="SACAAEModel.Sede" Multiplicity="1" />
+          <End Role="PlanesDeEstudioXSede" Type="SACAAEModel.PlanesDeEstudioXSede" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sedes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PlanesDeEstudioXSede">
+              <PropertyRef Name="Sede" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProfesoresXCurso_Profesor_Profesores_ID">
+          <End Role="Profesores" Type="SACAAEModel.Profesore" Multiplicity="1" />
+          <End Role="ProfesoresXCurso" Type="SACAAEModel.ProfesoresXCurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profesores">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProfesoresXCurso">
+              <PropertyRef Name="Profesor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProyectosXProfesor_Profesor_Profesores_ID">
+          <End Role="Profesores" Type="SACAAEModel.Profesore" Multiplicity="1" />
+          <End Role="ProyectosXProfesor" Type="SACAAEModel.ProyectosXProfesor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profesores">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProyectosXProfesor">
+              <PropertyRef Name="Profesor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProyectosXProfesor_Proyecto_Proyectos_ID">
+          <End Role="Proyectos" Type="SACAAEModel.Proyecto" Multiplicity="1" />
+          <End Role="ProyectosXProfesor" Type="SACAAEModel.ProyectosXProfesor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyectos">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProyectosXProfesor">
+              <PropertyRef Name="Proyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="ID_Usuario" />
+          </Key>
+          <Property Type="Int32" Name="ID_Usuario" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NombreUsuario" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Contrasenia" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Correo" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SACAAEModelStoreContainer" CdmEntityContainer="SACAAEEntities">
+          <EntitySetMapping Name="Comisiones">
+            <EntityTypeMapping TypeName="SACAAEModel.Comisione">
+              <MappingFragment StoreEntitySet="Comisiones">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Inicio" ColumnName="Inicio" />
+                <ScalarProperty Name="Fin" ColumnName="Fin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ComisionesXProfesors">
+            <EntityTypeMapping TypeName="SACAAEModel.ComisionesXProfesor">
+              <MappingFragment StoreEntitySet="ComisionesXProfesor">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Comision" ColumnName="Comision" />
+                <ScalarProperty Name="Profesor" ColumnName="Profesor" />
+                <ScalarProperty Name="Periodo" ColumnName="Periodo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cursos">
+            <EntityTypeMapping TypeName="SACAAEModel.Curso">
+              <MappingFragment StoreEntitySet="Cursos">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="HorasTeoricas" ColumnName="HorasTeoricas" />
+                <ScalarProperty Name="Bloque" ColumnName="Bloque" />
+                <ScalarProperty Name="Externo" ColumnName="Externo" />
+                <ScalarProperty Name="PlanDeEstudio" ColumnName="PlanDeEstudio" />
+                <ScalarProperty Name="HorasPracticas" ColumnName="HorasPracticas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CursosXGrupoes">
+            <EntityTypeMapping TypeName="SACAAEModel.CursosXGrupo">
+              <MappingFragment StoreEntitySet="CursosXGrupo">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Curso" ColumnName="Curso" />
+                <ScalarProperty Name="Grupo" ColumnName="Grupo" />
+                <ScalarProperty Name="Profesor" ColumnName="Profesor" />
+                <ScalarProperty Name="Cupo" ColumnName="Cupo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Grupoes">
+            <EntityTypeMapping TypeName="SACAAEModel.Grupo">
+              <MappingFragment StoreEntitySet="Grupo">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="PlanDeEstudio" ColumnName="PlanDeEstudio" />
+                <ScalarProperty Name="Periodo" ColumnName="Periodo" />
+                <ScalarProperty Name="Bloque" ColumnName="Bloque" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Modalidades">
+            <EntityTypeMapping TypeName="SACAAEModel.Modalidade">
+              <MappingFragment StoreEntitySet="Modalidades">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Periodos">
+            <EntityTypeMapping TypeName="SACAAEModel.Periodo">
+              <MappingFragment StoreEntitySet="Periodos">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PlanesDeEstudios">
+            <EntityTypeMapping TypeName="SACAAEModel.PlanesDeEstudio">
+              <MappingFragment StoreEntitySet="PlanesDeEstudio">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Modalidad" ColumnName="Modalidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PlanesDeEstudioXSedes">
+            <EntityTypeMapping TypeName="SACAAEModel.PlanesDeEstudioXSede">
+              <MappingFragment StoreEntitySet="PlanesDeEstudioXSede">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Sede" ColumnName="Sede" />
+                <ScalarProperty Name="PlanDeEstudio" ColumnName="PlanDeEstudio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Profesores">
+            <EntityTypeMapping TypeName="SACAAEModel.Profesore">
+              <MappingFragment StoreEntitySet="Profesores">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Plaza" ColumnName="Plaza" />
+                <ScalarProperty Name="HorasEnPropiedad" ColumnName="HorasEnPropiedad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProfesoresXCursoes">
+            <EntityTypeMapping TypeName="SACAAEModel.ProfesoresXCurso">
+              <MappingFragment StoreEntitySet="ProfesoresXCurso">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Curso" ColumnName="Curso" />
+                <ScalarProperty Name="Profesor" ColumnName="Profesor" />
+                <ScalarProperty Name="Horas" ColumnName="Horas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proyectos">
+            <EntityTypeMapping TypeName="SACAAEModel.Proyecto">
+              <MappingFragment StoreEntitySet="Proyectos">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Inicio" ColumnName="Inicio" />
+                <ScalarProperty Name="Fin" ColumnName="Fin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProyectosXProfesors">
+            <EntityTypeMapping TypeName="SACAAEModel.ProyectosXProfesor">
+              <MappingFragment StoreEntitySet="ProyectosXProfesor">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Proyecto" ColumnName="Proyecto" />
+                <ScalarProperty Name="Profesor" ColumnName="Profesor" />
+                <ScalarProperty Name="Periodo" ColumnName="Periodo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sedes">
+            <EntityTypeMapping TypeName="SACAAEModel.Sede">
+              <MappingFragment StoreEntitySet="Sedes">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="SACAAEModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Contrasenia" ColumnName="Contrasenia" />
+                <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
