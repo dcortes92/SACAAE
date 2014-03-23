@@ -86,7 +86,7 @@ namespace SACAAE.Models
             catch (Exception e)
             {
                 throw new ArgumentException("El proveedor de autenticación retornó un error. Por favor, intente de nuevo. " +
-                    "Si el problema persiste, por favor contacte un administrador.");
+                    "Si el problema persiste, por favor contacte un administrador.\n" + e.Message);
             }
  
             // Immediately persist the user data

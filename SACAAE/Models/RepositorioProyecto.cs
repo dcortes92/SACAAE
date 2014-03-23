@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
@@ -121,12 +122,35 @@ namespace SACAAE.Models
             if (!ExisteProyecto(proyecto))
                 throw new ArgumentException(FaltaProyecto);
 
-            entidades.Proyectos.Remove(proyecto);
+            var temp = entidades.Proyectos.Find(proyecto.ID);
+            if (temp != null)
+            {
+                entidades.Proyectos.Remove(temp);
+            }
+            Save();
         }
 
         public void BorrarProyecto(String nombre)
         {
             BorrarProyecto(ObtenerProyecto(nombre));
+        }
+
+        public void Actualizar(Proyecto proyecto)
+        {
+            if (!ExisteProyecto(proyecto))
+                AgregarProyecto(proyecto);
+
+            var temp = entidades.Proyectos.Find(proyecto.ID);
+
+            if (temp != null)
+            {
+                entidades.Entry(temp).Property(p => p.Nombre).CurrentValue = proyecto.Nombre;
+                entidades.Entry(temp).Property(p => p.Inicio).CurrentValue = proyecto.Inicio;
+                entidades.Entry(temp).Property(p => p.Fin).CurrentValue = proyecto.Fin;
+            }
+
+            Save();
+
         }
     }
 }

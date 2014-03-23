@@ -33,9 +33,54 @@ namespace SACAAE.Controllers
         public ActionResult Crear(Proyecto nuevoProyecto)
         {
             repositorio.CrearProyecto(nuevoProyecto.Nombre, nuevoProyecto.Inicio, nuevoProyecto.Fin);
-            TempData[TempDataMessageKey] = "Proyecto creado";
+            TempData[TempDataMessageKey] = "Proyecto creado correctamente.";
             return RedirectToAction("Index");
             
         }
+
+        [Authorize]
+        public ActionResult Eliminar(int id)
+        {
+            var model = repositorio.ObtenerProyecto(id);
+            return View(model);
+        }
+
+        [HttpPost]
+        [Authorize]
+        public ActionResult Eliminar(Proyecto proyecto)
+        {
+            repositorio.BorrarProyecto(proyecto);
+            TempData[TempDataMessageKey] = "Proyecto eliminado correctamente.";
+            return RedirectToAction("Index");
+        }
+
+        [Authorize]
+        public ActionResult Editar(int id)
+        {
+            var model = repositorio.ObtenerProyecto(id);
+            return View(model);
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult Editar(Proyecto proyecto)
+        {
+            if (ModelState.IsValid)
+            {
+                repositorio.Actualizar(proyecto);
+                TempData[TempDataMessageKey] = "Proyecto editado correctamente.";
+            }
+            
+            
+            return RedirectToAction("Index");
+        }
+
+        [Authorize]
+        public ActionResult Detalles(int id)
+        {
+            var model = repositorio.ObtenerProyecto(id);
+            return View(model);
+        }
+
     }
 }
