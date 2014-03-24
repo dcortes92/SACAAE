@@ -190,12 +190,16 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ComisionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProfesorController.cs" />
     <Compile Include="Controllers\ProyectoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ProveedorMembersia.cs" />
+    <Compile Include="Models\RepositorioComision.cs" />
+    <Compile Include="Models\RepositorioProfesor.cs" />
     <Compile Include="Models\RepositorioProyecto.cs" />
     <Compile Include="Models\RepositorioSACAAE.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -406,6 +410,15 @@
     <Content Include="Views\Proyecto\Eliminar.cshtml" />
     <Content Include="Views\Proyecto\Editar.cshtml" />
     <Content Include="Views\Proyecto\Detalles.cshtml" />
+    <Content Include="Views\Profesor\Index.cshtml" />
+    <Content Include="Views\Profesor\Crear.cshtml" />
+    <Content Include="Views\Profesor\Eliminar.cshtml" />
+    <Content Include="Views\Profesor\Editar.cshtml" />
+    <Content Include="Views\Profesor\Detalles.cshtml" />
+    <Content Include="Views\Comision\Index.cshtml" />
+    <Content Include="Views\Comision\Crear.cshtml" />
+    <Content Include="Views\Comision\Eliminar.cshtml" />
+    <Content Include="Views\Comision\Editar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

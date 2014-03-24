@@ -1,0 +1,37 @@
+﻿@model SACAAE.Models.Profesore
+
+@{
+    ViewBag.Title = "Detalles";
+    Layout = "~/Views/Shared/Privado.cshtml";
+}
+
+<h2>Detalles</h2>
+
+<fieldset>
+    <legend>Profesore</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Nombre)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nombre)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Plaza)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Plaza)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.HorasEnPropiedad)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.HorasEnPropiedad)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
