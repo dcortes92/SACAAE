@@ -5,37 +5,44 @@
     Layout = "~/Views/Shared/Privado.cshtml";
 }
 
-<h2>Eliminar</h2>
+<div class="col-lg-4">
+    <h2>Eliminar Comisi&oacute;n</h2>
+    <hr />
+    <div class="span12">
+        <h4><span class="label label-warning">¿Est&aacute; seguro de que desea eliminar la informaci&oacute;n de esa Comisi&oacute;n?</span></h4>
+        <br />
 
-<h3>Are you sure you want to delete this?</h3>
-<fieldset>
-    <legend>Comisione</legend>
+        <h4>
+            <span class="label label-info">
+                @Html.DisplayNameFor(model => model.Nombre)
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Nombre)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Nombre)
-    </div>
+                @Html.DisplayFor(model => model.Nombre)
+            </span>
+        </h4>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Inicio)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Inicio)
-    </div>
+        <h4>
+            <span class="label label-info">
+                @Html.DisplayNameFor(model => model.Inicio)
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Fin)
+                @Html.DisplayFor(model => model.Inicio)
+            </span>
+        </h4>
+        <h4>
+            <span class="label label-info">
+                @Html.DisplayNameFor(model => model.Fin)
+
+                @Html.DisplayFor(model => model.Fin)
+            </span>
+        </h4>
+        <br />
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <p>
+                <input type="submit" value="Eliminar" class="btn" />
+                |
+        @Html.ActionLink("Regresar", "Index")
+            </p>
+        }
     </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Fin)
-    </div>
-</fieldset>
-@using (Html.BeginForm()) {
-    @Html.AntiForgeryToken()
-    <p>
-        <input type="submit" value="Delete" /> |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
-}
+</div>

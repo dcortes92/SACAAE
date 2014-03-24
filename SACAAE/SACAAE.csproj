@@ -419,6 +419,7 @@
     <Content Include="Views\Comision\Crear.cshtml" />
     <Content Include="Views\Comision\Eliminar.cshtml" />
     <Content Include="Views\Comision\Editar.cshtml" />
+    <Content Include="Views\Comision\Detalles.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

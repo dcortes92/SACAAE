@@ -1,53 +1,66 @@
 ﻿@model SACAAE.Models.Profesore
 
 @{
-    ViewBag.Title = "Crear";
+    ViewBag.Title = "Agregar Profesor";
     Layout = "~/Views/Shared/Privado.cshtml";
 }
 
-<h2>Crear</h2>
+<div class="col-lg-4">
+    <h2>Agregar Profesor</h2>
+    <hr />
+    <div class="span12">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
 
-@using (Html.BeginForm()) {
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
+           
 
-    <fieldset>
-        <legend>Profesore</legend>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Nombre)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.Nombre, new
+               {
+                   @class = "form-control",
+                   @placeholder = "Nombre del Profesor",
+                   @required = "true"
+               })
+                @Html.ValidationMessageFor(model => model.Nombre)
+            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Nombre)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Nombre)
-            @Html.ValidationMessageFor(model => model.Nombre)
-        </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Plaza)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.Plaza, new
+               {
+                   @class = "form-control",
+                   @placeholder = "Código de Plaza",
+                   @required = "true"
+               })
+                @Html.ValidationMessageFor(model => model.Plaza)
+            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Plaza)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Plaza)
-            @Html.ValidationMessageFor(model => model.Plaza)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.HorasEnPropiedad)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.HorasEnPropiedad)
-            @Html.ValidationMessageFor(model => model.HorasEnPropiedad)
-        </div>
-
-        <p>
-            <input type="submit" value="Create" />
-        </p>
-    </fieldset>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
+            <div class="editor-label">
+                @Html.LabelFor(model => model.HorasEnPropiedad)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.HorasEnPropiedad, new
+               {
+                   @class = "form-control",
+                   @placeholder = "Cantidad de Horas Propiedad",
+                   @required = "true"
+               })
+                @Html.ValidationMessageFor(model => model.HorasEnPropiedad)
+            </div>
+            <br />
+            <p>
+                <input type="submit" value="Crear" class="btn" /> | @Html.ActionLink("Regresar", "Index")
+            </p>
+        }
+    </div>
 </div>
-
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

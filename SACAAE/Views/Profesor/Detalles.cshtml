@@ -1,37 +1,44 @@
 ﻿@model SACAAE.Models.Profesore
 
 @{
-    ViewBag.Title = "Detalles";
+    ViewBag.Title = "Detalles del Profesor";
     Layout = "~/Views/Shared/Privado.cshtml";
 }
 
-<h2>Detalles</h2>
+<div class="col-lg-4">
+    <h2>Detalles del Profesor</h2>
+    <hr />
 
-<fieldset>
-    <legend>Profesore</legend>
+    <div class="span4">
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Nombre)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Nombre)
-    </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Plaza)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Plaza)
-    </div>
+        <h4>
+            <span class="label label-info">
+                @Html.DisplayNameFor(model => model.Nombre)
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.HorasEnPropiedad)
+                @Html.DisplayFor(model => model.Nombre)
+            </span>
+        </h4>
+
+        <h4>
+            <span class="label label-info">
+                @Html.DisplayNameFor(model => model.Plaza)
+
+                @Html.DisplayFor(model => model.Plaza)
+            </span>
+        </h4>
+
+        <h4>
+            <span class="label label-info">
+                @Html.DisplayNameFor(model => model.HorasEnPropiedad)
+
+                @Html.DisplayFor(model => model.HorasEnPropiedad)
+            </span>
+        </h4>
+
+        <p>
+            @Html.ActionLink("Editar", "Editar", new { id = Model.ID }) |
+    @Html.ActionLink("Regresar", "Index")
+        </p>
     </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.HorasEnPropiedad)
-    </div>
-</fieldset>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+</div>

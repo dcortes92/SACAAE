@@ -1,41 +1,51 @@
 ﻿@model SACAAE.Models.Profesore
 
 @{
-    ViewBag.Title = "Eliminar";
+    ViewBag.Title = "Borrar Profesor";
     Layout = "~/Views/Shared/Privado.cshtml";
 }
 
-<h2>Eliminar</h2>
+<div class="col-lg-4">
+    <h2>Borrar Informaci&oacute;n de Profesor</h2>
+    <hr />
+    <div class="span12">
+        <h4><span class="label label-warning">¿Est&aacute; seguro de que desea eliminar la informaci&oacute;n de este profesor?</span></h4>
+        <br />
+        <h4>
+            <span class="label label-info">
+                @Html.DisplayNameFor(model => model.Nombre)
 
-<h3>Are you sure you want to delete this?</h3>
-<fieldset>
-    <legend>Profesore</legend>
+                @Html.DisplayFor(model => model.Nombre)
+            </span>
+        </h4>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Nombre)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Nombre)
-    </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Plaza)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Plaza)
-    </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.HorasEnPropiedad)
+        <h4>
+            <span class="label label-info">
+                @Html.DisplayNameFor(model => model.Plaza)
+
+                @Html.DisplayFor(model => model.Plaza)
+            </span>
+        </h4>
+
+        <h4>
+            <span class="label label-info">
+                @Html.DisplayNameFor(model => model.HorasEnPropiedad)
+
+                @Html.DisplayFor(model => model.HorasEnPropiedad)
+            </span>
+        </h4>
+        <br />
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <p>
+                <input type="submit" value="Borrar" class="btn" />
+                |
+        @Html.ActionLink("Regresar", "Index")
+            </p>
+        }
+
     </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.HorasEnPropiedad)
-    </div>
-</fieldset>
-@using (Html.BeginForm()) {
-    @Html.AntiForgeryToken()
-    <p>
-        <input type="submit" value="Delete" /> |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
-}
+</div>
