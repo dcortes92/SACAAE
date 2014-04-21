@@ -14,12 +14,16 @@ namespace SACAAE.Models
     
     public partial class ProfesoresXCurso
     {
+        public ProfesoresXCurso()
+        {
+            this.Detalle_Curso = new HashSet<Detalle_Curso>();
+        }
+    
         public int Id { get; set; }
-        public int Curso { get; set; }
         public int Profesor { get; set; }
         public Nullable<int> Horas { get; set; }
     
-        public virtual CursosXGrupo CursosXGrupo { get; set; }
+        public virtual ICollection<Detalle_Curso> Detalle_Curso { get; set; }
         public virtual Profesore Profesore { get; set; }
     }
 }

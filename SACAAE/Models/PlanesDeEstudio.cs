@@ -16,6 +16,7 @@ namespace SACAAE.Models
     {
         public PlanesDeEstudio()
         {
+            this.Cursos = new HashSet<Curso>();
             this.PlanesDeEstudioXSedes = new HashSet<PlanesDeEstudioXSede>();
         }
     
@@ -23,6 +24,7 @@ namespace SACAAE.Models
         public string Nombre { get; set; }
         public int Modalidad { get; set; }
     
+        public virtual ICollection<Curso> Cursos { get; set; }
         public virtual Modalidade Modalidade { get; set; }
         public virtual ICollection<PlanesDeEstudioXSede> PlanesDeEstudioXSedes { get; set; }
     }

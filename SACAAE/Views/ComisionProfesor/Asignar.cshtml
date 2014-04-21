@@ -1,0 +1,87 @@
+﻿@model SACAAE.Models.ComisionesXProfesor
+
+@{
+    ViewBag.Title = "Asignar";
+    Layout = "~/Views/Shared/Privado.cshtml";
+}
+
+<h2>Asignar Profesor a Comisi&oacute;n</h2>
+<hr />
+<div class="col-lg-4">
+    <div class="span12">
+        @if (TempData.ContainsKey("Message"))
+        {
+            <p class="text-success">@TempData["Message"].ToString()</p>
+        }
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Profesor)
+            </div>
+            <div class="editor-field">
+                <select id="sltProfesor" name="profesor" class="form-control">
+                    @foreach (var item in ViewBag.Profesores)
+                    {         
+                        <option>@item.Nombre</option>
+                    }
+                </select>
+            </div>
+            <br />
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Comision)
+            </div>
+            <div class="editor-field">
+                <select id="sltComision" name="comision" class="form-control">
+                    @foreach (var item in ViewBag.Comisiones)
+                    {         
+                        <option>@item.Nombre</option>
+                    }
+                </select>
+            </div>
+            <br />
+            <div class="editor-label">
+                @Html.Label("Día")
+            </div>
+            <div class="editor-field">
+                <select id="sltDia" class="form-control" name="dia">
+                    <option>Lunes</option>
+                    <option>Martes</option>
+                    <option>Mi&eacute;rcoles</option>
+                    <option>Jueves</option>
+                    <option>Viernes</option>
+                    <option>S&aacute;bado</option>
+                </select>
+            </div>
+            
+            <br />
+            <div class="editor-label">
+                @Html.Label("Hora Inicio")
+            </div>
+            <div class="editor-field">
+                @Html.TextBox("HoraInicio", null, new {@class = "form-control", @required = "true", @placeholder="9:00"})
+            </div>
+            <br />
+            <div class="editor-label">
+                @Html.Label("Hora Fin")
+            </div>
+            <div class="editor-field">
+                @Html.TextBox("HoraFin", null, new {@class = "form-control", @required = "true", @placeholder="12:00"})
+               
+            </div>
+            <br />
+            <p>
+                <input type="submit" value="Asignar" class="btn" />
+                | @Html.ActionLink("Regresar", "Index")
+            </p>
+        }
+    </div>
+</div>
+
+@section Scripts {
+
+}

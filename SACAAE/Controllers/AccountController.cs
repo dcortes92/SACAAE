@@ -14,6 +14,12 @@ namespace SACAAE.Controllers
     public class AccountController : Controller
     {
         public ProveedorMembersia MembershipService { get; set; }
+        private SACAAEEntities entidades;
+
+        public AccountController()
+        {
+            entidades = new SACAAEEntities();
+        }
 
         protected override void Initialize(RequestContext requestContext)
         {
@@ -42,6 +48,7 @@ namespace SACAAE.Controllers
                 if (MembershipService.ValidateUser(model.NombreUsuario, model.Contrasenia))
                 {
                     FormsAuthentication.SetAuthCookie(model.NombreUsuario, model.Recordarme);
+                    Session["Ajustes"] = ObtenerPeriodoActual();
                     if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
                         && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
                     {
@@ -89,8 +96,7 @@ namespace SACAAE.Controllers
                 try
                 {
                     /*string username, string fullName, string password, string email*/
-                    MembershipService.CreateUser(model.UserName, model.Name, model.Password, model.Email);
-
+                    MembershipService.CreateUser(model.UserName, model.Name, model.Password, model.Email);                    
                     FormsAuthentication.SetAuthCookie(model.UserName, false);
                     return RedirectToAction("Index", "Home");
                 }
@@ -135,6 +141,16 @@ namespace SACAAE.Controllers
         public ActionResult ChangePasswordSuccess()
         {
             return View();
+        }
+
+        public int ObtenerPeriodoActual()
+        {            
+            var query = from ajustes in entidades.Ajustes
+                          select ajustes;
+
+            List<Ajuste> config = query.ToList();
+
+            return config[0].IDPeriodoActual;
         }
     }
 }

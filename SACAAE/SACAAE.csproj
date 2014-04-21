@@ -191,31 +191,34 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ComisionController.cs" />
+    <Compile Include="Controllers\ComisionProfesorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProfesorController.cs" />
     <Compile Include="Controllers\ProyectoController.cs" />
+    <Compile Include="Controllers\PruebaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ProveedorMembersia.cs" />
-    <Compile Include="Models\RepositorioComision.cs" />
-    <Compile Include="Models\RepositorioProfesor.cs" />
-    <Compile Include="Models\RepositorioProyecto.cs" />
-    <Compile Include="Models\RepositorioSACAAE.cs" />
-    <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\Comisione.cs">
+    <Compile Include="Models\Ajuste.cs">
       <DependentUpon>SACAAEDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ComisionesXProfesor.cs">
+    <Compile Include="Models\Comisione.cs">
       <DependentUpon>SACAAEDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Curso.cs">
       <DependentUpon>SACAAEDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\CursosXGrupo.cs">
+    <Compile Include="Models\Detalle_Curso.cs">
       <DependentUpon>SACAAEDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Grupo.cs">
+    <Compile Include="Models\Dia.cs">
+      <DependentUpon>SACAAEDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Estado.cs">
+      <DependentUpon>SACAAEDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Horario.cs">
       <DependentUpon>SACAAEDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Modalidade.cs">
@@ -224,19 +227,36 @@
     <Compile Include="Models\Periodo.cs">
       <DependentUpon>SACAAEDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Profesore.cs">
+      <DependentUpon>SACAAEDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Proyecto.cs">
+      <DependentUpon>SACAAEDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RepositorioComision.cs" />
+    <Compile Include="Models\RepositorioComisionesProfesor.cs" />
+    <Compile Include="Models\RepositorioDia.cs" />
+    <Compile Include="Models\RepositorioHorario.cs" />
+    <Compile Include="Models\RepositorioProfesor.cs" />
+    <Compile Include="Models\RepositorioProyecto.cs" />
+    <Compile Include="Models\RepositorioSACAAE.cs" />
+    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\ComisionesXProfesor.cs">
+      <DependentUpon>SACAAEDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CursosXGrupo.cs">
+      <DependentUpon>SACAAEDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Grupo.cs">
+      <DependentUpon>SACAAEDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\PlanesDeEstudio.cs">
       <DependentUpon>SACAAEDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PlanesDeEstudioXSede.cs">
       <DependentUpon>SACAAEDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Profesore.cs">
-      <DependentUpon>SACAAEDataModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\ProfesoresXCurso.cs">
-      <DependentUpon>SACAAEDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Proyecto.cs">
       <DependentUpon>SACAAEDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ProyectosXProfesor.cs">
@@ -266,6 +286,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-datetimepicker.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -420,9 +441,12 @@
     <Content Include="Views\Comision\Eliminar.cshtml" />
     <Content Include="Views\Comision\Editar.cshtml" />
     <Content Include="Views\Comision\Detalles.cshtml" />
+    <Content Include="Views\Profesor\Prueba.cshtml" />
+    <Content Include="Views\ComisionProfesor\Asignar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Prueba\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -31,6 +31,7 @@ namespace SACAAE.Models
         {
             return from profesor in entidades.Profesores
                    orderby profesor.Nombre
+                   where profesor.Estado == 1
                    select profesor;
         }
 
@@ -51,18 +52,22 @@ namespace SACAAE.Models
             entidades.Profesores.Add(profesor);
         }
 
-        public void CrearProfesor(String nombre, String plaza, int horasPropiedad)
+        public void CrearProfesor(String nombre, String plaza, int horasPropiedad, String link, int estado)
         {
             if (string.IsNullOrEmpty(nombre.Trim()))
                 throw new ArgumentException("El nombre del profesor no es válido. Por favor, inténtelo de nuevo");
             if (string.IsNullOrEmpty(plaza.Trim()))
                 throw new ArgumentException("El código de la plaza no es válido. Por favor, inténtelo de nuevo");
+            if (string.IsNullOrEmpty(link.Trim()))
+                link = null;
             
             Profesore profesorNuevo = new Profesore()
             {
                 Nombre = nombre,
                 Plaza = plaza,
-                HorasEnPropiedad = horasPropiedad
+                HorasEnPropiedad = horasPropiedad,
+                Link = link,
+                Estado = estado
             
             };
 
@@ -91,7 +96,7 @@ namespace SACAAE.Models
             var temp = entidades.Profesores.Find(profesor.ID);
             if (temp != null)
             {
-                entidades.Profesores.Remove(temp);
+                entidades.Entry(temp).Property(p => p.Estado).CurrentValue = 2; /*Se pone en 2 porque en la BD se definió este como inactivo*/
             }
             Save();
         }
@@ -113,6 +118,7 @@ namespace SACAAE.Models
                 entidades.Entry(temp).Property(p => p.Nombre).CurrentValue = profesor.Nombre;
                 entidades.Entry(temp).Property(p => p.Plaza).CurrentValue = profesor.Plaza;
                 entidades.Entry(temp).Property(p => p.HorasEnPropiedad).CurrentValue = profesor.HorasEnPropiedad;
+                entidades.Entry(temp).Property(p => p.Link).CurrentValue = profesor.Link;
             }
 
             Save();
@@ -129,7 +135,7 @@ namespace SACAAE.Models
 
         public void Save()
         {
-            entidades.SaveChanges();
+            entidades.SaveChanges();            
         }
     }
 }

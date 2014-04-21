@@ -54,14 +54,14 @@ namespace SACAAE.Models
         public void CrearComision(String nombre, DateTime inicio, DateTime fin)
         {
             if (string.IsNullOrEmpty(nombre.Trim()))
-                throw new ArgumentException("El nombre del profesor no es válido. Por favor, inténtelo de nuevo");
+                throw new ArgumentException("El nombre de la comisión no es válida. Por favor, inténtelo de nuevo");
 
             Comisione comisionNueva = new Comisione()
             {
                 Nombre = nombre,
                 Inicio = inicio,
-                Fin = fin
-
+                Fin = fin,
+                Estado = 1
             };
 
             try
@@ -89,7 +89,7 @@ namespace SACAAE.Models
             var temp = entidades.Comisiones.Find(comision.ID);
             if (temp != null)
             {
-                entidades.Comisiones.Remove(temp);
+                entidades.Entry(temp).Property(c => c.Estado).CurrentValue = 2;
             }
             Save();
         }

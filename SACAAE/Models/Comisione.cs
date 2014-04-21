@@ -23,7 +23,9 @@ namespace SACAAE.Models
         public string Nombre { get; set; }
         public System.DateTime Inicio { get; set; }
         public System.DateTime Fin { get; set; }
+        public int Estado { get; set; }
     
+        public virtual Estado Estado1 { get; set; }
         public virtual ICollection<ComisionesXProfesor> ComisionesXProfesors { get; set; }
     }
 }

@@ -18,8 +18,10 @@ namespace SACAAE.Models
         public int Comision { get; set; }
         public int Profesor { get; set; }
         public int Periodo { get; set; }
+        public int Horario { get; set; }
     
         public virtual Comisione Comisione { get; set; }
+        public virtual Horario Horario1 { get; set; }
         public virtual Periodo Periodo1 { get; set; }
         public virtual Profesore Profesore { get; set; }
     }

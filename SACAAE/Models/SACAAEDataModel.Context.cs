@@ -29,7 +29,11 @@ namespace SACAAE.Models
         public DbSet<ComisionesXProfesor> ComisionesXProfesors { get; set; }
         public DbSet<Curso> Cursos { get; set; }
         public DbSet<CursosXGrupo> CursosXGrupoes { get; set; }
+        public DbSet<Detalle_Curso> Detalle_Curso { get; set; }
+        public DbSet<Dia> Dias { get; set; }
+        public DbSet<Estado> Estadoes { get; set; }
         public DbSet<Grupo> Grupoes { get; set; }
+        public DbSet<Horario> Horarios { get; set; }
         public DbSet<Modalidade> Modalidades { get; set; }
         public DbSet<Periodo> Periodos { get; set; }
         public DbSet<PlanesDeEstudio> PlanesDeEstudios { get; set; }
@@ -40,5 +44,6 @@ namespace SACAAE.Models
         public DbSet<ProyectosXProfesor> ProyectosXProfesors { get; set; }
         public DbSet<Sede> Sedes { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Ajuste> Ajustes { get; set; }
     }
 }

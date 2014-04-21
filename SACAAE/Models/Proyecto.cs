@@ -23,7 +23,10 @@ namespace SACAAE.Models
         public string Nombre { get; set; }
         public Nullable<System.DateTime> Inicio { get; set; }
         public Nullable<System.DateTime> Fin { get; set; }
+        public int Estado { get; set; }
+        public string Link { get; set; }
     
+        public virtual Estado Estado1 { get; set; }
         public virtual ICollection<ProyectosXProfesor> ProyectosXProfesors { get; set; }
     }
 }

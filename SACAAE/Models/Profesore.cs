@@ -25,8 +25,11 @@ namespace SACAAE.Models
         public string Nombre { get; set; }
         public string Plaza { get; set; }
         public int HorasEnPropiedad { get; set; }
+        public string Link { get; set; }
+        public int Estado { get; set; }
     
         public virtual ICollection<ComisionesXProfesor> ComisionesXProfesors { get; set; }
+        public virtual Estado Estado1 { get; set; }
         public virtual ICollection<ProfesoresXCurso> ProfesoresXCursoes { get; set; }
         public virtual ICollection<ProyectosXProfesor> ProyectosXProfesors { get; set; }
     }

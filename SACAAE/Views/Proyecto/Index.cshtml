@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<SACAAE.Models.Proyecto>
 
+
 @{
     ViewBag.Title = "Proyectos";
     Layout = "~/Views/Shared/Privado.cshtml";
@@ -7,7 +8,8 @@
 
 
 <div class="row">
-    <h2>Lista de Proyectos</h2>
+        
+    <h2>Lista de Proyectos</h2> 
     <div class="span12">
         @if (TempData.ContainsKey("Message"))
         {

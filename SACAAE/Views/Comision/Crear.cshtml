@@ -5,6 +5,7 @@
     Layout = "~/Views/Shared/Privado.cshtml";
 }
 
+
 <div class="col-lg-4">
     <h2>Crear Comisi&oacute;n</h2>
     <hr />
@@ -33,9 +34,7 @@
         <div class="editor-field">
             @Html.TextBoxFor(model => model.Inicio, new
                {
-                   @class = "form-control",
-                   @placeholder = "Fecha de Inicio",
-                   @required = "true"
+                   type = "date", @class = "form-control" 
                })
             @Html.ValidationMessageFor(model => model.Inicio)
         </div>
@@ -46,9 +45,7 @@
         <div class="editor-field">
             @Html.TextBoxFor(model => model.Fin, new
                {
-                   @class = "form-control",
-                   @placeholder = "Fecha de Finalización",
-                   @required = "true"
+                   type = "date", @class = "form-control" 
                })
             @Html.ValidationMessageFor(model => model.Fin)
         </div>

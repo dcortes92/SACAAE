@@ -12,19 +12,11 @@ namespace SACAAE.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class CursosXGrupo
+    public partial class Ajuste
     {
-        public CursosXGrupo()
-        {
-            this.Detalle_Curso = new HashSet<Detalle_Curso>();
-        }
+        public int IDConfig { get; set; }
+        public int IDPeriodoActual { get; set; }
     
-        public int ID { get; set; }
-        public int Curso { get; set; }
-        public int Grupo { get; set; }
-    
-        public virtual Curso Curso1 { get; set; }
-        public virtual Grupo Grupo1 { get; set; }
-        public virtual ICollection<Detalle_Curso> Detalle_Curso { get; set; }
+        public virtual Periodo Periodo { get; set; }
     }
 }

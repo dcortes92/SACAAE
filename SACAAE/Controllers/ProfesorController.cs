@@ -20,7 +20,7 @@ namespace SACAAE.Controllers
         {
             var model = repositorio.ObtenerTodosProfesores();
             return View(model);
-        }
+        }        
 
         [Authorize]
         public ActionResult Crear()
@@ -33,7 +33,7 @@ namespace SACAAE.Controllers
         [HttpPost]
         public ActionResult Crear(Profesore nuevoProfesor)
         {
-            repositorio.CrearProfesor(nuevoProfesor.Nombre, nuevoProfesor.Plaza, nuevoProfesor.HorasEnPropiedad);
+            repositorio.CrearProfesor(nuevoProfesor.Nombre, nuevoProfesor.Plaza, nuevoProfesor.HorasEnPropiedad, nuevoProfesor.Link, 1);
             TempData[TempDataMessageKey] = "Profesor agregado correctamente.";
             return RedirectToAction("Index");
 

@@ -26,8 +26,9 @@ namespace SACAAE.Models
         public int Bloque { get; set; }
         public bool Externo { get; set; }
         public int PlanDeEstudio { get; set; }
-        public string HorasPracticas { get; set; }
+        public Nullable<int> HorasPracticas { get; set; }
     
+        public virtual PlanesDeEstudio PlanesDeEstudio { get; set; }
         public virtual ICollection<CursosXGrupo> CursosXGrupoes { get; set; }
     }
 }

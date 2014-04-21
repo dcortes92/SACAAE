@@ -36,6 +36,15 @@
             </span>
         </h4>
 
+         <h4>
+            <span class="label label-info">
+                @Html.DisplayNameFor(model => model.Link)
+                
+                @Html.DisplayFor(model => model.HorasEnPropiedad)
+                
+            </span>
+        </h4>
+
         <p>
             @Html.ActionLink("Editar", "Editar", new { id = Model.ID }) |
     @Html.ActionLink("Regresar", "Index")

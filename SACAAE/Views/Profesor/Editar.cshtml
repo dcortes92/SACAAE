@@ -53,6 +53,16 @@
                })
                 @Html.ValidationMessageFor(model => model.HorasEnPropiedad)
             </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Link)
+            </div>
+             <div class="editor-field">
+                @Html.TextBoxFor(model => model.Link, new
+               {
+                   @class = "form-control",                   
+               })
+                @Html.ValidationMessageFor(model => model.Link)
+            </div>
             <br />
             <p>
                 <input type="submit" value="Guardar" class="btn" />
