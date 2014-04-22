@@ -25,23 +25,50 @@
             </div>
             <div class="editor-field">
                 <select id="sltProfesor" name="profesor" class="form-control">
-                    @foreach (var item in ViewBag.Profesores)
-                    {         
-                        <option>@item.Nombre</option>
+                    @if (ViewBag.Profesores != null)
+                    {
+                        foreach (var item in ViewBag.Profesores)
+                        {         
+                            <option>@item.Nombre</option>
+                        } 
                     }
+                    else
+                    {
+                        <option selected="selected">No hay profesores</option>
+                    }
+
                 </select>
+                @if (ViewBag.Profesores == null)
+                {
+                    
+                    @Html.ActionLink("Crear Profesor", "Crear", "Profesor")
+                }
             </div>
             <br />
             <div class="editor-label">
                 @Html.LabelFor(model => model.Comision)
             </div>
-            <div class="editor-field">
+            <div class="editor-field" style="display:inline">
                 <select id="sltComision" name="comision" class="form-control">
-                    @foreach (var item in ViewBag.Comisiones)
-                    {         
-                        <option>@item.Nombre</option>
+                    @if (ViewBag.Comisiones != null)
+                    {
+                        foreach (var item in ViewBag.Comisiones)
+                        {         
+                            <option>@item.Nombre</option>
+                        } 
                     }
-                </select>
+                    else
+                    {
+                        <option selected="selected">No hay comisiones</option>
+                    }
+                </select>  
+                @if (ViewBag.Comisiones == null)
+                {
+                    
+                    @Html.ActionLink("Crear Comision", "Crear", "Comision")
+                }
+
+               
             </div>
             <br />
             <div class="editor-label">
@@ -63,19 +90,27 @@
                 @Html.Label("Hora Inicio")
             </div>
             <div class="editor-field">
-                @Html.TextBox("HoraInicio", null, new {@class = "form-control", @required = "true", @placeholder="9:00"})
+                @Html.TextBox("HoraInicio", null, new { @class = "form-control", @required = "true", @placeholder = "9:00" })
             </div>
             <br />
             <div class="editor-label">
                 @Html.Label("Hora Fin")
             </div>
             <div class="editor-field">
-                @Html.TextBox("HoraFin", null, new {@class = "form-control", @required = "true", @placeholder="12:00"})
-               
+                @Html.TextBox("HoraFin", null, new { @class = "form-control", @required = "true", @placeholder = "12:00" })
+
             </div>
             <br />
             <p>
-                <input type="submit" value="Asignar" class="btn" />
+                @if (ViewBag.Profesores == null || ViewBag.Comisiones == null)
+                {                    
+                    <input type="submit" value="Asignar" class="btn" disabled="disabled" />
+                }
+                else
+                {
+                    <input type="submit" value="Asignar" class="btn" />
+                }
+
                 | <a href="@ViewBag.returnUrl">Cancelar</a>
             </p>
         }

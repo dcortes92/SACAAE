@@ -31,6 +31,7 @@ namespace SACAAE.Models
         {
             return from comision in entidades.Comisiones
                    orderby comision.Nombre
+                   where comision.Estado == 1
                    select comision;
         }
 
