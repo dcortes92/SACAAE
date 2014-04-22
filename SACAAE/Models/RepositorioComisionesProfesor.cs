@@ -14,7 +14,7 @@ namespace SACAAE.Models
             entidades = new SACAAEEntities();
         }
 
-        public bool CrearComisionProfesor(String profesor, String comision, String dia, String horainicio, String horafin)
+        public bool CrearComisionProfesor(String profesor, String comision, String dia, int horainicio, int horafin)
         {
             var retorno = false;
 

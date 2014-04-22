@@ -24,8 +24,8 @@ namespace SACAAE.Controllers
 
         [Authorize]
         public ActionResult Asignar()
-        {   
-
+        {
+            ViewBag.returnUrl = Request.UrlReferrer.ToString();
             ViewBag.Profesores = repositorioProfesor.ObtenerTodosProfesores().ToList<Profesore>();
             ViewBag.Comisiones = repositorioComision.ObtenerTodasComisiones().ToList<Comisione>();
 
@@ -34,7 +34,7 @@ namespace SACAAE.Controllers
 
         [Authorize]
         [HttpPost]
-        public ActionResult Asignar(String profesor, String comision, String dia, String HoraInicio, String HoraFin)
+        public ActionResult Asignar(String profesor, String comision, String dia, int HoraInicio, int HoraFin)
         {
             var creado = repositoriocomisionesprofesor.CrearComisionProfesor(profesor, comision, dia, HoraInicio, HoraFin);
             if (creado)

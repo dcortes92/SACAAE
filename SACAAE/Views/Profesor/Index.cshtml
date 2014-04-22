@@ -34,7 +34,7 @@
                  <th>
                     @Html.DisplayNameFor(model => model.Link)
                 </th>
-                <th></th>
+                <th>Acciones</th>
             </tr>
 
             @foreach (var item in Model)
@@ -63,7 +63,8 @@
                     <td>
                         @Html.ActionLink("Editar", "Editar", new { id = item.ID }) |
             @Html.ActionLink("Detalles", "Detalles", new { id = item.ID }) |
-            @Html.ActionLink("Borrar", "Eliminar", new { id = item.ID })
+            @Html.ActionLink("Borrar", "Eliminar", new { id = item.ID }) |
+                        @Html.ActionLink("Asignar a comisión", "Asignar", "ComisionProfesor")
                     </td>
                 </tr>
             }

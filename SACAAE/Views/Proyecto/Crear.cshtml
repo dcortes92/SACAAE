@@ -44,6 +44,14 @@
                 @Html.TextBoxFor(model => model.Fin, new { @class = "form-control", placeholder = "Fecha de Fin" })
                 @Html.ValidationMessageFor(model => model.Fin)
             </div>
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Link)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.Link, new { @class = "form-control", placeholder = "Enlace del proyecto" })
+                @Html.ValidationMessageFor(model => model.Link)
+            </div>
 
             <br />
             <input type="submit" class="btn btn-lg btn-primary btn-block" value="Crear Proyecto" />

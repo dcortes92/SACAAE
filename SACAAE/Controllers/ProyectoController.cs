@@ -32,7 +32,7 @@ namespace SACAAE.Controllers
         [HttpPost]
         public ActionResult Crear(Proyecto nuevoProyecto)
         {
-            repositorio.CrearProyecto(nuevoProyecto.Nombre, nuevoProyecto.Inicio, nuevoProyecto.Fin);
+            repositorio.CrearProyecto(nuevoProyecto.Nombre, nuevoProyecto.Inicio, nuevoProyecto.Fin, nuevoProyecto.Link);
             TempData[TempDataMessageKey] = "Proyecto creado correctamente.";
             return RedirectToAction("Index");
             

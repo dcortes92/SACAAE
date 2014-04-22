@@ -17,8 +17,8 @@ namespace SACAAE.Models
         public int Id { get; set; }
         public string Dia1 { get; set; }
         public int Horario { get; set; }
-        public string Hora_Inicio { get; set; }
-        public string Hora_Fin { get; set; }
+        public Nullable<int> Hora_Inicio { get; set; }
+        public Nullable<int> Hora_Fin { get; set; }
     
         public virtual Horario Horario1 { get; set; }
     }

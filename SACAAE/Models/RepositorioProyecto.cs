@@ -38,6 +38,7 @@ namespace SACAAE.Models
         {
             return from proyecto in entidades.Proyectos
                    orderby proyecto.Nombre
+                   where proyecto.Estado == 1
                    select proyecto;
         }
 
@@ -70,7 +71,7 @@ namespace SACAAE.Models
             entidades.Proyectos.Add(proyecto);
         }
 
-        public void CrearProyecto(string nombre, DateTime? fechaInicio, DateTime? fechaFin)
+        public void CrearProyecto(string nombre, DateTime? fechaInicio, DateTime? fechaFin, String link)
         {
             if (string.IsNullOrEmpty(nombre.Trim()))
                 throw new ArgumentException("El nombre del proyecto no es válido. Por favor, intente de nuevo.");
@@ -79,7 +80,9 @@ namespace SACAAE.Models
             {
                 Nombre = nombre,
                 Inicio = fechaInicio,
-                Fin = fechaFin
+                Fin = fechaFin,
+                Link = link,
+                Estado = 1
             };
 
             try
@@ -125,7 +128,7 @@ namespace SACAAE.Models
             var temp = entidades.Proyectos.Find(proyecto.ID);
             if (temp != null)
             {
-                entidades.Proyectos.Remove(temp);
+                entidades.Entry(temp).Property(p => p.Estado).CurrentValue = 2;
             }
             Save();
         }

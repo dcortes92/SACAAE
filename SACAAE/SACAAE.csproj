@@ -195,7 +195,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProfesorController.cs" />
     <Compile Include="Controllers\ProyectoController.cs" />
-    <Compile Include="Controllers\PruebaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -441,12 +440,10 @@
     <Content Include="Views\Comision\Eliminar.cshtml" />
     <Content Include="Views\Comision\Editar.cshtml" />
     <Content Include="Views\Comision\Detalles.cshtml" />
-    <Content Include="Views\Profesor\Prueba.cshtml" />
     <Content Include="Views\ComisionProfesor\Asignar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Prueba\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

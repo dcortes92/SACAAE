@@ -33,6 +33,9 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Fin)
                 </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Link)
+                </th>
                 <th></th>
             </tr>
 
@@ -47,6 +50,10 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Fin)
+                    </td>
+
+                    <td>
+                        <a href="@Html.DisplayFor(modelItem => item.Link)">Enlace del proyecto</a>
                     </td>
                     <td>
                         @Html.ActionLink("Editar", "Editar", new { id = item.ID }) |

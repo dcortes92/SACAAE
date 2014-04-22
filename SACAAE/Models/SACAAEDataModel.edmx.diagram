@@ -4,13 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f0e6c3ca2f7d4f429c71af5305839fd5" Name="Diagrama1" ZoomLevel="101">
+      <Diagram DiagramId="f0e6c3ca2f7d4f429c71af5305839fd5" Name="Diagrama1" ZoomLevel="75">
         <EntityTypeShape EntityType="SACAAEModel.Comisione" Width="1.5" PointX="10.675743905210748" PointY="7.3853186850367667" />
         <EntityTypeShape EntityType="SACAAEModel.ComisionesXProfesor" Width="1.5" PointX="11.486923640354966" PointY="28.90363582824526" />
         <EntityTypeShape EntityType="SACAAEModel.Curso" Width="1.5" PointX="7.5758215205631325" PointY="13.705715975587124" />
         <EntityTypeShape EntityType="SACAAEModel.CursosXGrupo" Width="1.5" PointX="8.519150385874859" PointY="30.714107453224297" />
         <EntityTypeShape EntityType="SACAAEModel.Detalle_Curso" Width="1.5" PointX="11.556569393517716" PointY="2.0026672938851022" />
-        <EntityTypeShape EntityType="SACAAEModel.Dia" Width="1.5" PointX="13.75" PointY="5.5" />
         <EntityTypeShape EntityType="SACAAEModel.Estado" Width="1.5" PointX="10.56194410219879" PointY="6.81305709798497" />
         <EntityTypeShape EntityType="SACAAEModel.Grupo" Width="1.5" PointX="3.0601025498752028" PointY="17.596783497183019" />
         <EntityTypeShape EntityType="SACAAEModel.Horario" Width="1.5" PointX="0.10749827702878895" PointY="12.065602993623168" />
@@ -35,7 +34,6 @@
         <AssociationConnector Association="SACAAEModel.FK_Detalle_Curso_Curso_CursosXGrupo_ID" />
         <AssociationConnector Association="SACAAEModel.FK_Detalle_Curso_Horario_Horario_Id" />
         <AssociationConnector Association="SACAAEModel.FK_Detalle_Curso_Profesor_ProfesoresXCurso_Id" />
-        <AssociationConnector Association="SACAAEModel.FK_Dia_Horario_Horario_Id" />
         <AssociationConnector Association="SACAAEModel.FK_Profesores_Estado_Estado_Id" />
         <AssociationConnector Association="SACAAEModel.FK_Proyectos_Estado_Estado_Id" />
         <AssociationConnector Association="SACAAEModel.FK_Grupo_Periodo_Periodos_ID" />
@@ -50,6 +48,8 @@
         <AssociationConnector Association="SACAAEModel.FK_ProyectosXProfesor_Proyecto_Proyectos_ID" />
         <EntityTypeShape EntityType="SACAAEModel.Ajuste" Width="1.5" PointX="11.02523057676164" PointY="12.249737208825414" />
         <AssociationConnector Association="SACAAEModel.FK_Ajustes_Periodo" />
+        <EntityTypeShape EntityType="SACAAEModel.Dia" Width="1.5" PointX="5.3005802562928661" PointY="18.77865528444697" />
+        <AssociationConnector Association="SACAAEModel.FK_Dia_Horario_Horario_Id" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

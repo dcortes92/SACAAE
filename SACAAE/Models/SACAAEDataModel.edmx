@@ -193,8 +193,8 @@
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Dia" Type="varchar" Nullable="false" MaxLength="250" />
           <Property Name="Horario" Type="int" Nullable="false" />
-          <Property Name="Hora_Inicio" Type="nvarchar" MaxLength="50" />
-          <Property Name="Hora_Fin" Type="nvarchar" MaxLength="50" />
+          <Property Name="Hora_Inicio" Type="int" />
+          <Property Name="Hora_Fin" Type="int" />
         </EntityType>
         <EntityType Name="Estado">
           <Key>
@@ -616,7 +616,6 @@
           <EntitySet Name="Cursos" EntityType="SACAAEModel.Curso" />
           <EntitySet Name="CursosXGrupoes" EntityType="SACAAEModel.CursosXGrupo" />
           <EntitySet Name="Detalle_Curso" EntityType="SACAAEModel.Detalle_Curso" />
-          <EntitySet Name="Dias" EntityType="SACAAEModel.Dia" />
           <EntitySet Name="Estadoes" EntityType="SACAAEModel.Estado" />
           <EntitySet Name="Grupoes" EntityType="SACAAEModel.Grupo" />
           <EntitySet Name="Horarios" EntityType="SACAAEModel.Horario" />
@@ -674,10 +673,6 @@
             <End Role="ProfesoresXCurso" EntitySet="ProfesoresXCursoes" />
             <End Role="Detalle_Curso" EntitySet="Detalle_Curso" />
           </AssociationSet>
-          <AssociationSet Name="FK_Dia_Horario_Horario_Id" Association="SACAAEModel.FK_Dia_Horario_Horario_Id">
-            <End Role="Horario" EntitySet="Horarios" />
-            <End Role="Dia" EntitySet="Dias" />
-          </AssociationSet>
           <AssociationSet Name="FK_Profesores_Estado_Estado_Id" Association="SACAAEModel.FK_Profesores_Estado_Estado_Id">
             <End Role="Estado" EntitySet="Estadoes" />
             <End Role="Profesore" EntitySet="Profesores" />
@@ -730,6 +725,11 @@
           <AssociationSet Name="FK_Ajustes_Periodo" Association="SACAAEModel.FK_Ajustes_Periodo">
             <End Role="Periodo" EntitySet="Periodos" />
             <End Role="Ajuste" EntitySet="Ajustes" />
+          </AssociationSet>
+          <EntitySet Name="Dias" EntityType="SACAAEModel.Dia" />
+          <AssociationSet Name="FK_Dia_Horario_Horario_Id" Association="SACAAEModel.FK_Dia_Horario_Horario_Id">
+            <End Role="Horario" EntitySet="Horarios" />
+            <End Role="Dia" EntitySet="Dias" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Comisione">
@@ -798,17 +798,6 @@
           <NavigationProperty Name="Horario1" Relationship="SACAAEModel.FK_Detalle_Curso_Horario_Horario_Id" FromRole="Detalle_Curso" ToRole="Horario" />
           <NavigationProperty Name="ProfesoresXCurso" Relationship="SACAAEModel.FK_Detalle_Curso_Profesor_ProfesoresXCurso_Id" FromRole="Detalle_Curso" ToRole="ProfesoresXCurso" />
         </EntityType>
-        <EntityType Name="Dia">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="Dia1" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="Horario" Nullable="false" />
-          <Property Type="String" Name="Hora_Inicio" />
-          <Property Type="String" Name="Hora_Fin" />
-          <NavigationProperty Name="Horario1" Relationship="SACAAEModel.FK_Dia_Horario_Horario_Id" FromRole="Dia" ToRole="Horario" />
-        </EntityType>
         <EntityType Name="Estado">
           <Key>
             <PropertyRef Name="Id" />
@@ -839,8 +828,8 @@
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="ComisionesXProfesors" Relationship="SACAAEModel.FK_ComisionesXProfesor_Horario_Horario_Id" FromRole="Horario" ToRole="ComisionesXProfesor" />
           <NavigationProperty Name="Detalle_Curso" Relationship="SACAAEModel.FK_Detalle_Curso_Horario_Horario_Id" FromRole="Horario" ToRole="Detalle_Curso" />
-          <NavigationProperty Name="Dias" Relationship="SACAAEModel.FK_Dia_Horario_Horario_Id" FromRole="Horario" ToRole="Dia" />
           <NavigationProperty Name="ProyectosXProfesors" Relationship="SACAAEModel.FK_ProyectosXProfesor_Horario_Horario_Id" FromRole="Horario" ToRole="ProyectosXProfesor" />
+          <NavigationProperty Name="Dias" Relationship="SACAAEModel.FK_Dia_Horario_Horario_Id" FromRole="Horario" ToRole="Dia" />
         </EntityType>
         <EntityType Name="Modalidade">
           <Key>
@@ -1085,18 +1074,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Dia_Horario_Horario_Id">
-          <End Type="SACAAEModel.Horario" Role="Horario" Multiplicity="1" />
-          <End Type="SACAAEModel.Dia" Role="Dia" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Horario">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Dia">
-              <PropertyRef Name="Horario" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Profesores_Estado_Estado_Id">
           <End Type="SACAAEModel.Estado" Role="Estado" Multiplicity="1" />
           <End Type="SACAAEModel.Profesore" Role="Profesore" Multiplicity="*" />
@@ -1261,6 +1238,29 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Dia">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Dia1" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Horario" Nullable="false" />
+          <Property Type="Int32" Name="Hora_Inicio" />
+          <Property Type="Int32" Name="Hora_Fin" />
+          <NavigationProperty Name="Horario1" Relationship="SACAAEModel.FK_Dia_Horario_Horario_Id" FromRole="Dia" ToRole="Horario" />
+        </EntityType>
+        <Association Name="FK_Dia_Horario_Horario_Id">
+          <End Type="SACAAEModel.Horario" Role="Horario" Multiplicity="1" />
+          <End Type="SACAAEModel.Dia" Role="Dia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Horario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dia">
+              <PropertyRef Name="Horario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1320,17 +1320,6 @@
                 <ScalarProperty Name="Horario" ColumnName="Horario" />
                 <ScalarProperty Name="Profesor" ColumnName="Profesor" />
                 <ScalarProperty Name="Curso" ColumnName="Curso" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Dias">
-            <EntityTypeMapping TypeName="SACAAEModel.Dia">
-              <MappingFragment StoreEntitySet="Dia">
-                <ScalarProperty Name="Hora_Fin" ColumnName="Hora_Fin" />
-                <ScalarProperty Name="Hora_Inicio" ColumnName="Hora_Inicio" />
-                <ScalarProperty Name="Horario" ColumnName="Horario" />
-                <ScalarProperty Name="Dia1" ColumnName="Dia" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1463,6 +1452,17 @@
               <MappingFragment StoreEntitySet="Ajustes">
                 <ScalarProperty Name="IDPeriodoActual" ColumnName="IDPeriodoActual" />
                 <ScalarProperty Name="IDConfig" ColumnName="IDConfig" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dias">
+            <EntityTypeMapping TypeName="SACAAEModel.Dia">
+              <MappingFragment StoreEntitySet="Dia">
+                <ScalarProperty Name="Hora_Fin" ColumnName="Hora_Fin" />
+                <ScalarProperty Name="Hora_Inicio" ColumnName="Hora_Inicio" />
+                <ScalarProperty Name="Horario" ColumnName="Horario" />
+                <ScalarProperty Name="Dia1" ColumnName="Dia" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
