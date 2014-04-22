@@ -1,0 +1,72 @@
+﻿@model SACAAE.Models.Proyecto
+
+@{
+    ViewBag.Title = "Editar";
+    Layout = "~/Views/Shared/Privado.cshtml";
+}
+
+<div class="col-lg-4">
+    <h2>Editar Proyecto</h2>
+    <hr />
+
+    <div class="span12">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            
+
+            @Html.HiddenFor(model => model.ID)
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Nombre)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.Nombre, new
+               {
+                   @class = "form-control",                   
+                   @required = "true"
+               })
+                    @Html.ValidationMessageFor(model => model.Nombre)
+            </div>
+            <br />
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Inicio)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.Inicio, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Inicio)
+            </div>
+            <br />
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Fin)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.Fin, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Fin)
+            </div>
+            <br />
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Link)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.Link, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Link)
+            </div>
+            <br />
+            <hr />
+            <p>
+                <input type="submit" class="btn" value="Guardar" /> |
+                @Html.ActionLink("Regresar", "Index")
+            </p>
+            
+        }
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
