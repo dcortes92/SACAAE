@@ -18,14 +18,14 @@
             @if (TempData.ContainsKey("Message"))
             {
                 String message = TempData["Message"].ToString();
-                
+
                 if (message.Equals("Profesor asignado correctamente."))
                 {
-                    <p class="text-success">@message</p>
+                <p class="text-success">@message</p>
                 }
                 else
                 {
-                    <p class="text-danger">@message</p>
+                <p class="text-danger">@message</p>
                 }
             }
 
@@ -144,7 +144,7 @@
                     @Html.Label("Horas")
                 </div>
                 <div class="editor-field">
-                    @Html.TextBox("txtHoras", null, new { @class = "form-control"})
+                    @Html.TextBox("txtHoras", null, new { @class = "form-control" })
 
                     <!--<input type="text" name="txtHoras" id="txtHoras" disabled="disabled" class="form-control">-->
                 </div>
@@ -177,9 +177,15 @@
                 <p>
 
                     <input type="submit" value="Asignar" class="btn" id="Asignar" disabled="disabled" />
-
-
-                    | <a href="@ViewBag.returnUrl">Cancelar</a>
+                    | 
+                    @if (ViewBag.returnUrl != null)
+                    {
+                        <a href="@ViewBag.returnUrl">Cancelar</a>    
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Cancelar", "Index", "Proyecto");
+                    }
                 </p>
             }
         </div>

@@ -54,8 +54,13 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Asignaci&oacute;n de Carga<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>@Html.ActionLink("Asignar Profesor a Curso", "Asignar", "CursoProfesor")</li>
+                            <li>@Html.ActionLink("Revocar Profesor de Curso", "Revocar", "CursoProfesor")</li>
+                            <li class="divider"></li>
                             <li>@Html.ActionLink("Asignar Profesor a Comisión", "Asignar", "ComisionProfesor")</li>
+                            <li>@Html.ActionLink("Revocar Profesor de Comisión", "Revocar", "ComisionProfesor")</li>
+                            <li class="divider"></li>
                             <li>@Html.ActionLink("Asignar Profesor a Proyecto", "Asignar", "ProyectoProfesor")</li>
+                            <li>@Html.ActionLink("Revocar Profesor de Proyecto", "Revocar", "ProyectoProfesor")</li>
                         </ul>
                     </li>
                     <li class="active">@Html.ActionLink("Cerrar sesión", "Logoff", "Account")</li>

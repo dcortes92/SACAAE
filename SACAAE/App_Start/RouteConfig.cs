@@ -39,6 +39,11 @@ namespace SACAAE
              new { Controller = "CursoProfesor", action = "ObtenerHorario" });
 
             routes.MapRoute(
+            "ObtenerCursosPorProfesor",
+            "CursoProfesor/Profesor/Cursos/{idProfesor}",
+            new { Controller = "CursoProfesor", action = "ObtenerCursosPorProfesor" });
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Account", action = "Login", id = UrlParameter.Optional }

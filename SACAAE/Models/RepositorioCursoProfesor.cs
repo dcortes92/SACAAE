@@ -47,7 +47,7 @@ namespace SACAAE.Models
                     retorno = false;
                 }
             }
-            
+
             return retorno;
         }
 
@@ -58,8 +58,8 @@ namespace SACAAE.Models
         public int ObtenerUltimoProfesoresXCurso()
         {
             ProfesoresXCurso last = (from profesoresXCurso in entidades.ProfesoresXCursoes
-                            orderby profesoresXCurso.Id descending
-                            select profesoresXCurso).First();
+                                     orderby profesoresXCurso.Id descending
+                                     select profesoresXCurso).First();
 
             return last.Id;
         }
@@ -71,7 +71,7 @@ namespace SACAAE.Models
         public IQueryable<Sede> obtenerTodasSedes()
         {
             return from sede in entidades.Sedes
-                   orderby sede.Nombre                   
+                   orderby sede.Nombre
                    select sede;
         }
 
@@ -111,7 +111,7 @@ namespace SACAAE.Models
         public IQueryable obtenerCursos(int plan)
         {
             return from cursos in entidades.Cursos
-                   join cursosporgrupo in entidades.CursosXGrupoes on cursos.ID equals cursosporgrupo.Curso                   
+                   join cursosporgrupo in entidades.CursosXGrupoes on cursos.ID equals cursosporgrupo.Curso
                    where (cursos.PlanDeEstudio == plan)
                    select new { cursos.ID, cursos.Nombre, cursos.Codigo };
         }
@@ -139,7 +139,7 @@ namespace SACAAE.Models
         {
             return from detalle in entidades.Detalle_Curso
                    where detalle.Curso == cursoxgrupo
-                   select new { detalle.Id, detalle.Curso, detalle.Aula, detalle.Cupo};
+                   select new { detalle.Id, detalle.Curso, detalle.Aula, detalle.Cupo };
         }
 
         /// <summary>
@@ -150,12 +150,12 @@ namespace SACAAE.Models
         public int obtenerHorario(int cursoxgrupo)
         {
             var query = from detalle in entidades.Detalle_Curso
-                   where detalle.Curso == cursoxgrupo
-                   select detalle;
+                        where detalle.Curso == cursoxgrupo
+                        select detalle;
 
             List<Detalle_Curso> config = query.ToList();
-            
-            
+
+
             return config[0].Horario;
         }
 
@@ -169,7 +169,7 @@ namespace SACAAE.Models
         {
             return from dia in entidades.Dias
                    where dia.Horario == horario
-                   select new { dia.Horario, dia.Dia1, dia.Hora_Inicio, dia.Hora_Fin};
+                   select new { dia.Horario, dia.Dia1, dia.Hora_Inicio, dia.Hora_Fin };
         }
 
 
@@ -213,6 +213,46 @@ namespace SACAAE.Models
 
 
             return config[0].Profesor;
+        }
+
+
+        /// <summary>
+        /// Obtiene los cursos que está impartiendo un profesor.
+        /// </summary>
+        /// <param name="idProfesor">El id del profesor.</param>
+        /// <returns>La lista de cursos.</returns>
+        public IQueryable obtenerCursosPorProfesor(int idProfesor)
+        {
+            
+            return from profesores in entidades.Profesores
+                   join profesoresxcurso in entidades.ProfesoresXCursoes on profesores.ID equals profesoresxcurso.Profesor
+                   join detallecurso in entidades.Detalle_Curso on profesoresxcurso.Id equals detallecurso.Profesor
+                   join cursosxgrupo in entidades.CursosXGrupoes on detallecurso.Curso equals cursosxgrupo.ID
+                   join cursos in entidades.Cursos on cursosxgrupo.Curso equals cursos.ID
+                   where profesores.ID == idProfesor
+                   select new { profesoresxcurso.Id, cursos.Nombre, cursos.Codigo};
+        }
+
+        /// <summary>
+        /// Revoca la asignación de un profesor a un curso.
+        /// </summary>
+        /// <param name="idProfesorXCurso">El id del profesor x curso.</param>
+        /// <returns>True si logra revocarlo.</returns>
+        public bool revocarProfesor(int idProfesorXCurso)
+        {
+            var retorno = false;
+            var temp = entidades.ProfesoresXCursoes.Find(idProfesorXCurso);
+
+            if (temp != null)
+            {
+                entidades.Entry(temp).Property(p => p.Profesor).CurrentValue = 1;
+                entidades.Entry(temp).Property(p => p.Horas).CurrentValue = 0;
+                retorno = true;
+            }
+
+            entidades.SaveChanges();
+
+            return retorno;
         }
     }
 }

@@ -26,6 +26,15 @@ namespace SACAAE.Controllers
         [Authorize]
         public ActionResult Asignar()
         {
+            if (Request.UrlReferrer != null)
+            {
+                ViewBag.returnUrl = Request.UrlReferrer.ToString();
+            }
+            else
+            {
+                ViewBag.returnUrl = null;
+            }
+
             /* Se obtiene la lista de profesores */
             List<Profesore> ListaProfesores = repositorioProfesor.ObtenerTodosProfesores().ToList<Profesore>();
             /* Se obtiene la lista de sedes */
@@ -156,6 +165,62 @@ namespace SACAAE.Controllers
             }
 
             return View(listaHorario);
+        }
+
+        [Authorize]
+        public ActionResult Revocar()
+        {
+            if (Request.UrlReferrer != null)
+            {
+                ViewBag.returnUrl = Request.UrlReferrer.ToString();
+            }
+            else
+            {
+                ViewBag.returnUrl = null;
+            }
+
+            /* Se obtiene la lista de profesores */
+            List<Profesore> ListaProfesores = repositorioProfesor.ObtenerTodosProfesores().ToList<Profesore>();
+
+            if (ListaProfesores.Count > 0)
+                ViewBag.Profesores = ListaProfesores;
+            else
+                ViewBag.Profesores = null;
+
+            return View();
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult revocar(int sltCursosImpartidos)
+        {
+            var revocado = false;
+
+            revocado = repositorioCursoProfesor.revocarProfesor(sltCursosImpartidos);
+
+            if (revocado)
+            {
+                TempData[TempDataMessageKey] = "Profesor revocado del curso correctamente.";
+            }
+            else
+            {
+                TempData[TempDataMessageKey] = "Ocurrió un error al revocar el profesor.";
+            }
+
+            return RedirectToAction("Revocar");
+        }
+
+
+        public ActionResult ObtenerCursosPorProfesor(int idProfesor)
+        {
+            IQueryable listaCursos = repositorioCursoProfesor.obtenerCursosPorProfesor(idProfesor);
+            if (HttpContext.Request.IsAjaxRequest())
+            {
+                var json = JsonConvert.SerializeObject(listaCursos);
+
+                return Content(json);
+            }
+            return View(listaCursos);
         }
     }
 }

@@ -25,7 +25,14 @@ namespace SACAAE.Controllers
         [Authorize]
         public ActionResult Asignar()
         {
-            //ViewBag.returnUrl = Request.UrlReferrer.ToString();
+            if (Request.UrlReferrer != null)
+            {
+                ViewBag.returnUrl = Request.UrlReferrer.ToString();
+            }
+            else
+            {
+                ViewBag.returnUrl = null;
+            }
             List<Profesore> ListaProfesores = repositorioProfesor.ObtenerTodosProfesores().ToList<Profesore>();
             List<Comisione> ListaComisiones = repositorioComision.ObtenerTodasComisiones().ToList<Comisione>();
 
