@@ -192,6 +192,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ComisionController.cs" />
     <Compile Include="Controllers\ComisionProfesorController.cs" />
+    <Compile Include="Controllers\CursoProfesorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProfesorController.cs" />
     <Compile Include="Controllers\ProyectoController.cs" />
@@ -234,6 +235,8 @@
     </Compile>
     <Compile Include="Models\RepositorioComision.cs" />
     <Compile Include="Models\RepositorioComisionesProfesor.cs" />
+    <Compile Include="Models\RepositorioCurso.cs" />
+    <Compile Include="Models\RepositorioCursoProfesor.cs" />
     <Compile Include="Models\RepositorioDia.cs" />
     <Compile Include="Models\RepositorioHorario.cs" />
     <Compile Include="Models\RepositorioProfesor.cs" />
@@ -378,6 +381,7 @@
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\CursoProfesor.js" />
     <Content Include="Scripts\jquery-2.1.0.js" />
     <Content Include="Scripts\jquery-2.1.0.min.js" />
     <Content Include="Scripts\jquery-2.1.0.min.map" />
@@ -441,6 +445,7 @@
     <Content Include="Views\Comision\Editar.cshtml" />
     <Content Include="Views\Comision\Detalles.cshtml" />
     <Content Include="Views\ComisionProfesor\Asignar.cshtml" />
+    <Content Include="Views\CursoProfesor\Asignar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

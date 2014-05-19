@@ -11,7 +11,6 @@ namespace SACAAE.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
     public partial class Comisione
     {
@@ -22,11 +21,7 @@ namespace SACAAE.Models
     
         public int ID { get; set; }
         public string Nombre { get; set; }
-
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public System.DateTime Inicio { get; set; }
-
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public System.DateTime Fin { get; set; }
         public int Estado { get; set; }
     

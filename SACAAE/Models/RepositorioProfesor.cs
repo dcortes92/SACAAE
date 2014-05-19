@@ -58,8 +58,7 @@ namespace SACAAE.Models
                 throw new ArgumentException("El nombre del profesor no es válido. Por favor, inténtelo de nuevo");
             if (string.IsNullOrEmpty(plaza.Trim()))
                 throw new ArgumentException("El código de la plaza no es válido. Por favor, inténtelo de nuevo");
-            if (string.IsNullOrEmpty(link.Trim()))
-                link = null;
+        
             
             Profesore profesorNuevo = new Profesore()
             {
