@@ -195,6 +195,7 @@
     <Compile Include="Controllers\CursoProfesorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProfesorController.cs" />
+    <Compile Include="Controllers\ProfesoresProyectosController.cs" />
     <Compile Include="Controllers\ProyectoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -240,6 +241,7 @@
     <Compile Include="Models\RepositorioDia.cs" />
     <Compile Include="Models\RepositorioHorario.cs" />
     <Compile Include="Models\RepositorioProfesor.cs" />
+    <Compile Include="Models\RepositorioProfesorProyecto.cs" />
     <Compile Include="Models\RepositorioProyecto.cs" />
     <Compile Include="Models\RepositorioSACAAE.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -397,7 +399,9 @@
     <Content Include="Scripts\knockout-3.1.0.debug.js" />
     <Content Include="Scripts\knockout-3.1.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\RevocarComisionProfesor.js" />
     <Content Include="Scripts\RevocarCursoProfesor.js" />
+    <Content Include="Scripts\RevocarProyectoProfesor.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -448,6 +452,9 @@
     <Content Include="Views\ComisionProfesor\Asignar.cshtml" />
     <Content Include="Views\CursoProfesor\Asignar.cshtml" />
     <Content Include="Views\CursoProfesor\Revocar.cshtml" />
+    <Content Include="Views\ComisionProfesor\Revocar.cshtml" />
+    <Content Include="Views\ProfesoresProyectos\Asignar.cshtml" />
+    <Content Include="Views\ProfesoresProyectos\Revocar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

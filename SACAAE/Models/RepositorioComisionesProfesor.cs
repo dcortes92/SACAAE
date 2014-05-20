@@ -111,5 +111,43 @@ namespace SACAAE.Models
 
             return config[0].IDPeriodoActual;
         }
+
+        /// <summary>
+        /// Obtiene la lista de comisiones a las que está asociado un profesor.
+        /// </summary>
+        /// <param name="idProfesor">El id del profesor.</param>
+        /// <returns>La lista de comisiones a las que está asociado el profesor.</returns>
+        public IQueryable ObtenerComisionesXProfesor(int idProfesor)
+        {            
+
+            return from profesores in entidades.Profesores
+                   join comisionesxprofesor in entidades.ComisionesXProfesors on profesores.ID equals comisionesxprofesor.Profesor
+                   join comisiones in entidades.Comisiones on comisionesxprofesor.Comision equals comisiones.ID
+                   where profesores.ID == idProfesor
+                   select new { comisionesxprofesor.ID, comisiones.Nombre};
+        }
+
+        /// <summary>
+        /// Revoca un profesor de una comisión determinada.
+        /// </summary>
+        /// <param name="idComision">El id de la comisión por profesor.</param>
+        /// <returns>True si se logra revocar.</returns>
+        public bool revocarProfesor(int idComision)
+        {
+            var retorno = false;
+
+            var comision = entidades.ComisionesXProfesors.Find(idComision);
+
+            if (comision != null)
+            {
+                entidades.ComisionesXProfesors.Remove(comision);
+
+                entidades.SaveChanges();
+
+                retorno = true;
+            }
+
+            return retorno;
+        }
     }
 }

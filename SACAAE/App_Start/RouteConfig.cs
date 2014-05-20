@@ -13,6 +13,7 @@ namespace SACAAE
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            /*Rutas Cortés*/
             routes.MapRoute(
              "ObtenerPlanesEstudio",
              "CursoProfesor/Planes/List/{sede}/{modalidad}",
@@ -42,6 +43,18 @@ namespace SACAAE
             "ObtenerCursosPorProfesor",
             "CursoProfesor/Profesor/Cursos/{idProfesor}",
             new { Controller = "CursoProfesor", action = "ObtenerCursosPorProfesor" });
+
+            routes.MapRoute(
+            "ObtenerComisionesXProfesor",
+            "ComisionProfesor/Profesor/Comisiones/{idProfesor}",
+            new { Controller = "ComisionProfesor", action = "ObtenerComisionesXProfesor" });
+
+            routes.MapRoute(
+            "ObtenerProyectosXProfesor",
+            "ProfesoresProyectos/Profesor/Proyectos/{idProfesor}",
+            new { Controller = "ProfesoresProyectos", action = "ObtenerProyectosXProfesor" });    
+
+            /*Fin Rutas Cortés*/
 
             routes.MapRoute(
                 name: "Default",
